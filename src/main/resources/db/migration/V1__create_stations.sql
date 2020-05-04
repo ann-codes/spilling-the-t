@@ -1,0 +1,14 @@
+CREATE TABLE stations (
+   id SERIAL PRIMARY KEY,
+   network VARCHAR(255) NOT NULL,
+   review VARCHAR(255) NOT NULL,
+   address VARCHAR(255) NOT NULL,
+   city VARCHAR (255) NOT NULL,
+   zip VARCHAR(255) NOT NULL,
+   state VARCHAR(255) NOT NULL,
+   country VARCHAR(255) NOT NULL,
+   image_url VARCHAR(255) NOT NULL,
+   description text NOT NULL,
+   calculated_cost VARCHAR(255) NOT NULL,
+   admin_approved BOOLEAN NOT NULL,
+);
