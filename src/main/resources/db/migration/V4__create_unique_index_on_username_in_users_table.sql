@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX index ON users(username);
