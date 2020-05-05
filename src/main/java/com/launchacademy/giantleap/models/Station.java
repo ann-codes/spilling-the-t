@@ -73,7 +73,7 @@ public class Station {
   @Column(name = "calculated_cost")
   private String calculatedCost;
 
-  @NotNull(message = "If its not admn approved you are not seeing this")
+  @NotNull(message = "If its not admin approved you are not seeing this")
   @Column(name = "admin_approved")
   private Boolean adminApproved;
 

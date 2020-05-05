@@ -1,10 +1,12 @@
 const postData = (apiPath, payload, submissionStatusSetter) => {
   fetch(apiPath, {
+    credentials: 'same-origin',
     method: "POST",
     body: JSON.stringify(payload),
     headers: { "Content-Type": "application/json" },
   })
     .then((response) => {
+      debugger
       if (response.ok) {
         submissionStatusSetter(true);
         return response;

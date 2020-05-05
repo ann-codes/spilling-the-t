@@ -5,7 +5,6 @@ import com.launchacademy.giantleap.repositories.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +27,11 @@ public class StationApiController {
     }
 
     @PostMapping("/stations/new")
-    public String createStation(@ModelAttribute Station station, Model model) {
-        model.addAttribute(station);
-        return "trips/show";
+    public ResponseEntity create(@RequestBody @Valid Station station, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
+        } else {
+            return new ResponseEntity<Station>(stationRepository.save(station), HttpStatus.CREATED);
+        }
     }
 }
