@@ -2,44 +2,54 @@ package com.launchacademy.giantleap.controllers.api.v1;
 
 import com.launchacademy.giantleap.models.Station;
 import com.launchacademy.giantleap.repositories.StationRepository;
+
 import java.util.List;
+
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
+@RequestMapping("/api/v1")
 public class StationApiController {
-@Autowired
-  private StationRepository stationRepo;
+    private StationRepository stationRepository;
 
-@NoArgsConstructor
-  private static class StationNotFoundException extends RuntimeException{
+    @Autowired
+    public StationApiController(StationRepository stationRepository) {
+        this.stationRepository = stationRepository;
+    }
 
-}
+    @NoArgsConstructor
+    private class StationNotFoundException extends RuntimeException {
+        @ResponseBody
+        @ExceptionHandler(StationNotFoundException.class)
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        String stationNotFoundHandler(StationNotFoundException ex) {
+            return ex.getMessage();
+        }
+    }
 
-@ControllerAdvice
-  private class StationNotFoundAdvice{
+    @GetMapping("/stations/all")
+    public Iterable<Station> getAllStations() {
+        return stationRepository.findAll();
+    }
 
-  @ResponseBody
-  @ExceptionHandler(StationNotFoundException.class)
-  @ResponseStatus(HttpStatus.NOT_FOUND)
-  String stationNotFoundHandler(StationNotFoundException ex) {return ex.getMessage();}
-}
+    @GetMapping("/station/{id}")
+    public Station getOneType(@PathVariable Integer id) {
+        return stationRepository.findById(id).orElseThrow(StationNotFoundException::new);
+    }
 
-@GetMapping("/api/v1/stations")
-  public List getStations() {
-  return stationRepo.findAll();
-}
-
-@GetMapping("/api/v1/stations/{id}")
-public Station getOneType(@PathVariable Integer id){
-  return stationRepo.findById(id).orElseThrow(StationNotFoundException:: new);
-  }
+    @PostMapping("/stations/new")
+    public ResponseEntity create(@RequestBody @Valid Station station, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
+        } else {
+            return new ResponseEntity<Station>(stationRepository.save(station), HttpStatus.CREATED);
+        }
+    }
 }

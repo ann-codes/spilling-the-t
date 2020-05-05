@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.URL;
 
 @Entity
 @Table(name = "stations")
@@ -61,6 +62,7 @@ public class Station {
 
   @NotBlank(message = "Must include image url")
   @Column(name = "image_url")
+  @URL
   private String imageUrl;
 
   @NotBlank(message = "Must include description")
@@ -71,7 +73,7 @@ public class Station {
   @Column(name = "calculated_cost")
   private String calculatedCost;
 
-  @NotNull(message = "If its not admn approved you are not seeing this")
+  @NotNull(message = "If its not admin approved you are not seeing this")
   @Column(name = "admin_approved")
   private Boolean adminApproved;
 
