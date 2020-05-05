@@ -7,11 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class MasterSeeder implements CommandLineRunner {
 
-  @Autowired
-  StationsSeeder stationsSeeder;
+  @Autowired StationsSeeder stationsSeeder;
+  @Autowired UserSeeder userSeeder;
 
   @Override
   public void run(String... args) throws Exception {
     stationsSeeder.seed();
+    userSeeder.seed();
   }
 }
