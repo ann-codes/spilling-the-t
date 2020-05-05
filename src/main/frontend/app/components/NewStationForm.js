@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ErrorList from "./ErrorList";
+import validateForm from "../functions/validateForm";
 
 const NewStationForm = (props) => {
   const defaultForm = {
@@ -30,22 +31,41 @@ const NewStationForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formPayload = {
-      network: form.network,
-      lineName: form.lineName,
-      name: form.name,
-      address: form.address,
-      city: form.city,
-      zip: form.zup,
-      state: form.state,
-      country: form.country,
-      imageUrl: form.imageUrl,
-      description: form.description,
-      calculatedCost: form.calculatedCost,
-      adminApproved: false,
-    };
-    props.addNewStation(formPayload);
-    setForm(defaultForm);
+    if (
+      validateForm(
+        [
+          "network",
+          "lineName",
+          "name",
+          "address",
+          "city",
+          "zip",
+          "state",
+          "country",
+          "imageUrl",
+          "description",
+        ],
+        form,
+        setErrors
+      )
+    ) {
+      const formPayload = {
+        network: form.network,
+        lineName: form.lineName,
+        name: form.name,
+        address: form.address,
+        city: form.city,
+        zip: form.zup,
+        state: form.state,
+        country: form.country,
+        imageUrl: form.imageUrl,
+        description: form.description,
+        calculatedCost: form.calculatedCost,
+        adminApproved: false,
+      };
+      props.addNewStation(formPayload);
+      setForm(defaultForm);
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -133,24 +153,42 @@ const NewStationForm = (props) => {
       />
       <br />
       <label>Fare Cost Calculation Method</label>
-      <div onChange={handleChange}>
-        <input type="radio" value="perRide" name="calculatedCost" />
+      <label>
+        <input
+          type="radio"
+          name="calculatedCost"
+          id="calculatedCost"
+          value="perRide"
+          checked={form.calculatedCost === "perRide"}
+          onChange={handleChange}
+        />
         Per Ride
-        <input type="radio" value="byDistance" name="calculatedCost" />
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="calculatedCost"
+          id="calculatedCost"
+          value="byDistance"
+          checked={form.calculatedCost === "byDistance"}
+          onChange={handleChange}
+        />
         By Distance
-      </div>
+      </label>
       <br />
       <label>Station Photo URL</label>
       <input
-        name="imgUrl"
-        id="imgUrl"
+        name="imageUrl"
+        id="imageUrl"
         type="text"
         value={form.imageUrl}
         onChange={handleChange}
       />
       <br />
       <input type="submit" />
-      <button type="button" onClick={clearForm}>Clear</button>
+      <button type="button" onClick={clearForm}>
+        Clear
+      </button>
     </form>
   );
 };

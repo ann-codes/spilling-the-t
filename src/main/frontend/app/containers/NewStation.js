@@ -5,7 +5,7 @@ import postData from "../functions/postData";
 const NewStation = (props) => {
   const [submitted, setSubmitted] = useState(false);
 
-  const apiPath = "/api/v1/stations";
+  const apiPath = "/api/v1/stations/new";
 
   const addNewStation = (formPayload) => {
     event.preventDefault();
