@@ -56,8 +56,6 @@ public class UserSeeder {
         userRepository.save(user);
       }
     }
-
   }
-
 
 }
