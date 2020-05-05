@@ -10,5 +10,5 @@ CREATE TABLE stations (
    image_url VARCHAR(255) NOT NULL,
    description text NOT NULL,
    calculated_cost VARCHAR(255) NOT NULL,
-   admin_approved BOOLEAN NOT NULL,
+   admin_approved BOOLEAN NOT NULL
 );
