@@ -6,7 +6,6 @@ const postData = (apiPath, payload, submissionStatusSetter) => {
     headers: { "Content-Type": "application/json" },
   })
     .then((response) => {
-      debugger
       if (response.ok) {
         submissionStatusSetter(true);
         return response;

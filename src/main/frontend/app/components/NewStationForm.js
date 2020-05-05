@@ -55,7 +55,7 @@ const NewStationForm = (props) => {
         name: form.name,
         address: form.address,
         city: form.city,
-        zip: form.zup,
+        zip: form.zip,
         state: form.state,
         country: form.country,
         imageUrl: form.imageUrl,
