@@ -24,14 +24,8 @@ public class StationApiController {
         this.stationRepository = stationRepository;
     }
 
-//    @ControllerAdvice
-//    private class StationNotFoundException extends RuntimeException {
-//    }
-
     @NoArgsConstructor
     private class StationNotFoundException extends RuntimeException {
-//    }
-//    private class StationNotFoundAdvice {
         @ResponseBody
         @ExceptionHandler(StationNotFoundException.class)
         @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -46,8 +40,8 @@ public class StationApiController {
     }
 
     @GetMapping("/station/{id}")
-    public Station getOneType(@PathVariable Integer id){
-        return stationRepository.findById(id).orElseThrow(StationNotFoundException:: new);
+    public Station getOneType(@PathVariable Integer id) {
+        return stationRepository.findById(id).orElseThrow(StationNotFoundException::new);
     }
 
     @PostMapping("/stations/new")
