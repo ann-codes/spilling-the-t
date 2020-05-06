@@ -6,6 +6,9 @@ const Navigation = (props) => {
     <nav>
       <ul>
         <li>
+          <Link to="/stations">Look at Stations</Link>
+        </li>
+        <li>
           <Link to="/stations/new">Submit a new station</Link>
         </li>
         <li>
