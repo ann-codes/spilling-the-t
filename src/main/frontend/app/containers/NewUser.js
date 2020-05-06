@@ -21,4 +21,4 @@ const NewUser = (props) => {
   }
 };
 
-export default NewUser
+export default NewUser;
