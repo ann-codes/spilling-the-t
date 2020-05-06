@@ -12,7 +12,7 @@ const Station = (props) => {
   };
 
   useEffect(loadStations, []);
-
+  console.log(stations);
   const stationsListItems = stations.map((map, index) => {
     return (
       <li>
