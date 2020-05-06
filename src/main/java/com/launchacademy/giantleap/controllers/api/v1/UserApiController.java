@@ -63,6 +63,14 @@ public class UserApiController {
     return userService.findUserByUsernameDto(username);
   }
 
+  @GetMapping("users/checkname/{username}")
+  public Iterable<UserDto> findAllByUsername(@PathVariable String username) {
+//    if (username == null) {
+//      username = "PLACE@Holder to avoid JSON failing!";
+//    }
+    return userService.findAllByUsernameDto(username);
+  }
+
   @PostMapping("user/new")
   public ResponseEntity createUser(@Valid @RequestBody User user,
       BindingResult bindingResult) {

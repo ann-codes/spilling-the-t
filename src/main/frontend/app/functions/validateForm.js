@@ -1,3 +1,6 @@
+import React, { useState, useEffect } from "react";
+import fetchData from "./fetchData";
+
 const validateForm = (requiredFields, stateGetter, errorSetter) => {
   let submitErrors = {};
   requiredFields.forEach((field) => {
@@ -9,8 +12,31 @@ const validateForm = (requiredFields, stateGetter, errorSetter) => {
     }
   });
 
-  const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
+  if (stateGetter.username) {
+    const apiCheckUsernameUnique = `/api/v1/users/checkname/${stateGetter.username}`;
+    fetch(apiCheckUsernameUnique, {
+      headers: { "Content-Type": "application/json", credentials: "same-origin" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          throw new Error(`${response.status} (${response.statusText})`);
+        }
+      })
+      .then((response) => response.json())
+      .then((body) => {
+        if (body.length > 0) {
+          errorSetter({
+            ...submitErrors,
+            ["username"]: "has already been taken.",
+          });
+        }
+      })
+      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  }
 
+  const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
   if (stateGetter["password"]) {
     if (!strongPassword.test(stateGetter["password"])) {
       submitErrors = {

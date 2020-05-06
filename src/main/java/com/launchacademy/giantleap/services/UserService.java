@@ -22,17 +22,28 @@ public class UserService {
   public Page findAll(Pageable pageable) {
     Page<User> usersInDb = userRepo.findAll(pageable);
     List<UserDto> userDtos = new ArrayList<>();
-    for (User user: usersInDb.getContent()) {
+    for (User user : usersInDb.getContent()) {
       userDtos.add(UserDto.fromUser(user));
     }
-    return  new PageImpl<UserDto>(userDtos, pageable, usersInDb.getTotalElements());
+    return new PageImpl<UserDto>(userDtos, pageable, usersInDb.getTotalElements());
   }
 
   public Iterable<UserDto> findAllIterable() {
     List<User> usersInDb = userRepo.findAll();
     List<UserDto> userDtos = new ArrayList<>();
-    for (User user: usersInDb) {
+    for (User user : usersInDb) {
       userDtos.add(UserDto.fromUser(user));
+    }
+    return userDtos;
+  }
+
+  public Iterable<UserDto> findAllByUsernameDto(String username) {
+    List<User> usersInDb = userRepo.findAll();
+    List<UserDto> userDtos = new ArrayList<>();
+    for (User user : usersInDb) {
+      if (username.equals(user.getUsername())) {
+        userDtos.add(UserDto.fromUser(user));
+      }
     }
     return userDtos;
   }
@@ -40,14 +51,13 @@ public class UserService {
   public UserDto findUserByUsernameDto(String username) {
     List<User> usersInDb = userRepo.findAll();
     List<UserDto> userDtos = new ArrayList<>();
-    for (User user: usersInDb) {
+    for (User user : usersInDb) {
       if (username.equals(user.getUsername())) {
         userDtos.add(UserDto.fromUser(user));
       }
     }
     return userDtos.get(0);
   }
-
 
 
 }
