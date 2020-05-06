@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StationRepository extends PagingAndSortingRepository<Station, Integer> {
   public List<Station> findAll();
-
   public Optional<Station> findById(Integer id);
+  public Station findByName(String name);
 }
