@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import fetchData from "../functions/fetchData"
+import { Link } from "react-router"
 import ReactDom from "react-dom"
 
 const Station = (props) => {
@@ -13,13 +14,14 @@ const Station = (props) => {
 	}
 
 	useEffect(loadStations, [])
-	console.log(stations)
-	const stationsListItems = stations.map((map, index) => {
+	const stationsListItems = stations.map((map) => {
 		return (
 			<li>
-				<h2>
-					{map.name} {map.network} {map.address} {map.state}
-				</h2>
+				<Link to="/api/v1/station/{id}">
+					<h2>
+						{map.name} {map.network} {map.address} {map.state}
+					</h2>
+				</Link>
 			</li>
 		)
 	})
