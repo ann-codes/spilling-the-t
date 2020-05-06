@@ -1,5 +1,6 @@
 package com.launchacademy.giantleap.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -52,11 +53,11 @@ public class Review {
     @Range(min=1, max=5)
     private Integer overallRating;
 
-    @ManyToOne
-    @JoinColumn(name="station_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="station_id", nullable = false)
     private Station station;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id", nullable = false)
     private User user;
 }
