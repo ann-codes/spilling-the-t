@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NewStation from "./NewStation";
-import NewUser from "./NewUser"
-import Station from "./Station"
+import NewUser from "./NewUser";
+import Station from "./Station";
 import Navigation from "../components/Navigation";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 
 const App = (props) => {
   return (
