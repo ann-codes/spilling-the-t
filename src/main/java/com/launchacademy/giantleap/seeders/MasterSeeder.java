@@ -9,10 +9,12 @@ public class MasterSeeder implements CommandLineRunner {
 
   @Autowired StationsSeeder stationsSeeder;
   @Autowired UserSeeder userSeeder;
+  @Autowired ReviewSeeder reviewSeeder;
 
   @Override
   public void run(String... args) throws Exception {
     stationsSeeder.seed();
     userSeeder.seed();
+    reviewSeeder.seed();
   }
 }
