@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ErrorList from "./ErrorList";
 import validateForm from "../functions/validateForm";
-import fetchData from "../functions/fetchData"
 
 const NewUserForm = (props) => {
   const defaultValues = {
@@ -41,7 +40,7 @@ const NewUserForm = (props) => {
         ],
         userForm,
         setErrors
-      )
+      ) && errors.length == 0
     ) {
       props.addNewUser(userForm);
       setUserForm(defaultValues);

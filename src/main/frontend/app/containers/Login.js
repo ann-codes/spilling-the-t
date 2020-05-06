@@ -1,7 +1,9 @@
 import React from "react";
+import LoginForm from "../components/LoginForm"
+import postData from "../functions/postData";
 
 const Login = (props) => {
-  return <p>LOGIN FORM</p>;
+  return <LoginForm />
 };
 
 export default Login;

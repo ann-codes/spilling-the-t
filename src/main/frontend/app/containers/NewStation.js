@@ -8,7 +8,6 @@ const NewStation = (props) => {
   const apiPath = "/api/v1/stations/new";
 
   const addNewStation = (formPayload) => {
-    event.preventDefault();
     postData(apiPath, formPayload, setSubmitted);
   };
 

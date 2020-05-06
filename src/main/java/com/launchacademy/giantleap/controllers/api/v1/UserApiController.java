@@ -64,11 +64,14 @@ public class UserApiController {
   }
 
   @GetMapping("users/checkname/{username}")
-  public Iterable<UserDto> findAllByUsername(@PathVariable String username) {
-//    if (username == null) {
-//      username = "PLACE@Holder to avoid JSON failing!";
-//    }
+  public Iterable<UserDto> getAllByUsername(@PathVariable String username) {
     return userService.findAllByUsernameDto(username);
+  }
+
+  @GetMapping("auth/{username}/{password}")
+  public Iterable<UserDto> getAllByUsernameAndPassword(@PathVariable String username,
+      @PathVariable String password) {
+    return userService.findAllByUsernameAndPasswordDto(username, password);
   }
 
   @PostMapping("user/new")

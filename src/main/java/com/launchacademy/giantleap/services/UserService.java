@@ -48,6 +48,17 @@ public class UserService {
     return userDtos;
   }
 
+  public Iterable<UserDto> findAllByUsernameAndPasswordDto(String username, String password) {
+    List<User> usersInDb = userRepo.findAll();
+    List<UserDto> userDtos = new ArrayList<>();
+    for (User user : usersInDb) {
+      if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+        userDtos.add(UserDto.fromUser(user));
+      }
+    }
+    return userDtos;
+  }
+
   public UserDto findUserByUsernameDto(String username) {
     List<User> usersInDb = userRepo.findAll();
     List<UserDto> userDtos = new ArrayList<>();
