@@ -12,10 +12,13 @@ const authenticateForm = (requiredFields, stateGetter, errorSetter) => {
     }
   });
 
-  console.log(stateGetter.username && stateGetter.password);
+  console.log("info", stateGetter.username.length >= 1 && stateGetter.password.length >= 1);
 
-  if (stateGetter.username && stateGetter.password) {
+  if (stateGetter.username.length >= 1 && stateGetter.password.length >= 1) {
     const apiAuth = `/api/v1/auth/${stateGetter.username}/${stateGetter.password}`;
+
+console.log(apiAuth)
+
     fetch(apiAuth, {
       headers: {
         "Content-Type": "application/json",
