@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import UsersNew from "../components/UsersNew";
+import NewStation from "./NewStation";
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={UsersNew} />
-        <Route exact path="/accounts-new" component={UsersNew} />
+        <Route exact path="/stations/new" component={NewStation} />
       </Switch>
     </BrowserRouter>
   );
