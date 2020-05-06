@@ -11,21 +11,7 @@ const Station = (props) => {
 	const loadStations = () => {
 		fetchData(stationApiPath, setStations)
 	}
-	//
-	//   fetch ("api/v1/stations").then((resp)=>{
-	//     if(resp.ok){
-	//       return resp
-	//     }
-	//     else{
-	//       throw new Error(resp.Error)
-	//     }
-	//   }).then(resp => {
-	//     return resp.json();
-	//   }).then(body => {
-	//     setStations(body)
-	//     setLoading(false)
-	//   })
-	// }
+
 	useEffect(loadStations, [])
 	console.log(stations)
 	const stationsListItems = stations.map((map, index) => {
