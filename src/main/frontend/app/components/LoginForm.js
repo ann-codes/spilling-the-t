@@ -5,7 +5,7 @@ import authenticateForm from "../functions/authenticateForm";
 const LoginForm = (props) => {
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
-  const [userAuth, setUserAuth] = useState({});
+  const [userFound, setUserFound] = useState({});
 
   const handleChange = (event) => {
     setLoginForm({
@@ -17,30 +17,72 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    let isAuthed = Object.entries(userFound).length > 1;
     let isValid = authenticateForm(
       ["username", "password"],
       loginForm,
-      setUserAuth,
+      setUserFound,
       setErrors
     );
-    let hasErrors = errors.length == 0
+    let noErrors = Object.entries(errors).length === 0;
 
-    console.log("isValid", isValid);
-    console.log("has errors, ", errors.length == 0);
+    if (isValid) {
+      console.log("VALID", loginForm); // =======
 
-    if (isValid && hasErrors) {
-      console.log("VALID"); // =======
-      setLoginForm({ username: "", password: "" });
+      if (
+        loginForm.username.length >= 1 &&
+        loginForm.password.length >= 1 &&
+        /^[a-zA-Z0-9_]*$/.test(loginForm.username)
+      ) {
+        // now that it is valid, check the api
+        const apiAuth = `/api/v1/auth/${loginForm.username}/${loginForm.password}`;
+        const fetchAuth = fetch(apiAuth, {
+          headers: {
+            "Content-Type": "application/json",
+            credentials: "same-origin",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response;
+            } else {
+              throw new Error(`${response.status} (${response.statusText})`);
+            }
+          })
+          .then((response) => response.json())
+          .then((body) => {
+            if (body.length === 0) {
+              setErrors({
+                ...errors,
+                ["password"]: "and username combination does not match",
+              });
+            } else if (body.length > 0) {
+              setUserFound(body[0]);
+            }
+          })
+          .catch((error) => console.error(`Error in fetch: ${error.message}`));
+
+      }
+      useEffect(fetchAuth, []);
+
+
+    //   props.setLoggedIn(true);
+      //   setLoginForm({ username: "", password: "" });
+      // SET COOKIE HERE TO AUTH
+      // render the "logged in notice" Component?
     } else {
       console.log("NOT VALID", loginForm); // =======
+      // WE DONT CARE IF IT IS NOT VALID BC THEY GET THE ERROR MESSAGE
+      // will remove this later
     }
+
+    console.log("is Authenticaed", isAuthed);
+    console.log("isValid", isValid);
+    console.log("no errors, ", noErrors);
+    console.log("errors:", errors);
   };
 
-  console.log("user ", userAuth); // =======
-
-  if (Object.entries(userAuth).length > 1) {
-    console.log("FOUND");
-  }
+  console.log("user ", userFound); // =======
 
   return (
     <form onSubmit={handleSubmit}>

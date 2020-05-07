@@ -19,42 +19,44 @@ const authenticateForm = (
     if (!alphaNumOnly.test(stateGetter["username"])) {
       submitErrors = {
         ...submitErrors,
-        ["username"]:
-          "may can only contain letters, numbers, and underscores.",
+        ["username"]: "may can only contain letters, numbers, and underscores.",
       };
     }
-  } else if (
-    stateGetter.username.length >= 1 &&
-    stateGetter.password.length >= 1
-  ) {
-    const apiAuth = `/api/v1/auth/${stateGetter.username}/${stateGetter.password}`;
-
-    fetch(apiAuth, {
-      headers: {
-        "Content-Type": "application/json",
-        credentials: "same-origin",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          throw new Error(`${response.status} (${response.statusText})`);
-        }
-      })
-      .then((response) => response.json())
-      .then((body) => {
-        if (body.length === 0) {
-          errorSetter({
-            ...submitErrors,
-            ["username"]: "and password combination is not match",
-          });
-        } else if (body.length > 0) {
-          authSetter(body[0]);
-        }
-      })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }
+
+  // if (
+  //   stateGetter.username.length >= 1 &&
+  //   stateGetter.password.length >= 1 &&
+  //   alphaNumOnly.test(stateGetter["username"])
+  // ) {
+  //   const apiAuth = `/api/v1/auth/${stateGetter.username}/${stateGetter.password}`;
+
+  //   fetch(apiAuth, {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       credentials: "same-origin",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response;
+  //       } else {
+  //         throw new Error(`${response.status} (${response.statusText})`);
+  //       }
+  //     })
+  //     .then((response) => response.json())
+  //     .then((body) => {
+  //       if (body.length === 0) {
+  //         errorSetter({
+  //           ...submitErrors,
+  //           ["password"]: "and username combination does not match",
+  //         });
+  //       } else if (body.length > 0) {
+  //         authSetter(body[0]);
+  //       }
+  //     })
+  //     .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  // }
 
   errorSetter(submitErrors);
   return (
