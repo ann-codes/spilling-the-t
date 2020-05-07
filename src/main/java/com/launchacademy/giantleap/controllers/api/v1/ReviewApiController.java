@@ -26,7 +26,8 @@ public class ReviewApiController {
     }
 
     @NoArgsConstructor
-    private class NotFoundException extends RuntimeException {}
+    private class NotFoundException extends RuntimeException {
+    }
 
     @ControllerAdvice
     private class NotFoundAdvice {
@@ -42,14 +43,9 @@ public class ReviewApiController {
     public Iterable<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
-<<<<<<< HEAD
 
     @GetMapping("review/{id}")
     public Optional<Review> getOneReview(@PathVariable Integer id) {
         return reviewRepository.findById(id);
     }
-
-=======
-    
->>>>>>> 3e428f89b991db2c010bdd57c2683815172bef2d
 }
