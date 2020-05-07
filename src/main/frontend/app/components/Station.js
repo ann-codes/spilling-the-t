@@ -1,33 +1,22 @@
-import React, { useState, useEffect } from "react"
-import fetchData from "../functions/fetchData"
-import Station from "../components/Station"
+import React from "react"
 import { Link } from "react-router-dom"
 
-const Station = () => {
-	const [station, setStation] = useState([])
-	const [loading, setLoading] = useState(false)
-	//not sure how to show id to show station
-	const stationApiPath = `/api/v1/station/:${id}`
-
-	const loadStation = () => {
-		fetchData(stationApiPath, setStation)
-	}
-
-	useEffect(loadStation, [])
-	const stationListItem = station.map((map) => {
-		return (
-			<li>
-				<h2>
-					{map.name} {map.network} {map.address} {map.state} {map.lineName}
-				</h2>
-			</li>
-		)
-	})
+const Station = (props) => {
 	return (
-		<ul>
-			{stationListItem}
-			{/* <Station /> */}
-		</ul>
+		<div className="column">
+			<div className="callout text-center">
+				<Link to={`station/${props.id}`}>
+					<h3>{props.name}</h3>
+					<img className="img-radius" src={props.imageUrl} alt={props.name} />
+				</Link>
+				<p>
+					{props.name} {props.network} {props.lineName}
+				</p>
+				<Link to={`station/${props.id}`} className="button expanded">
+					Learn more about about this station
+				</Link>
+			</div>
+		</div>
 	)
 }
 
