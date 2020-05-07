@@ -43,7 +43,7 @@ public class ReviewApiController {
         return reviewRepository.findAll();
     }
 
-    @GetMapping("review/{id}")
-    public Optional<Review> getOneReview
+//    @GetMapping("review/{id}")
+//    public Optional<Review> getOneReview
 
 }
