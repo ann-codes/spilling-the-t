@@ -4,7 +4,6 @@ import Station from "../components/Station"
 
 const StationContainer = (props) => {
 	const [stations, setStations] = useState([])
-	const byStation = props.match.params.name
 
 	const stationApiPath = "/api/v1/stations/all"
 
@@ -13,7 +12,6 @@ const StationContainer = (props) => {
 	}
 
 	useEffect(loadStations, [])
-	console.log(stations)
 
 	const stationsListItems = stations.map((map) => {
 		return (
@@ -27,12 +25,8 @@ const StationContainer = (props) => {
 			/>
 		)
 	})
-	console.log(stationsListItems)
-	return (
-		<h1>
-			Hey this is Jasen <Station />
-		</h1>
-	) //  { stationsListItems }
+
+	return <h1>{stationsListItems}</h1>
 }
 
 export default StationContainer

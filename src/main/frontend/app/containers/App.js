@@ -6,7 +6,7 @@ import Login from "./Login"
 import StationContainer from "./StationContainer"
 import Navigation from "../components/Navigation"
 import Footer from "../components/Footer"
-import Station from "../components/Station"
+import StationShowPage from "../components/StationShowPage"
 
 const App = (props) => {
 	return (
@@ -21,7 +21,7 @@ const App = (props) => {
 					<Route exact path="/stations" component={StationContainer} />
 					<Route exact path="/stations/new" component={NewStation} />
 					<Route exact path="/users/new" component={NewUser} />
-					<Route exact path="/station/:id" component={Station} />
+					<Route exact path="/station/:id" component={StationShowPage} />
 				</Switch>
 			</div>
 			<Footer />
