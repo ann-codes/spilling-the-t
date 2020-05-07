@@ -42,8 +42,5 @@ public class ReviewApiController {
     public Iterable<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
-
-    @GetMapping("review/{id}")
-    public Optional<Review> getOneReview
-
+    
 }

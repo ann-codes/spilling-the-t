@@ -12,12 +12,8 @@ const authenticateForm = (requiredFields, stateGetter, errorSetter) => {
     }
   });
 
-  console.log("info", stateGetter.username.length >= 1 && stateGetter.password.length >= 1);
-
   if (stateGetter.username.length >= 1 && stateGetter.password.length >= 1) {
     const apiAuth = `/api/v1/auth/${stateGetter.username}/${stateGetter.password}`;
-
-console.log(apiAuth)
 
     fetch(apiAuth, {
       headers: {
@@ -37,7 +33,7 @@ console.log(apiAuth)
         if (body.length > 0) {
           errorSetter({
             ...submitErrors,
-            ["username"]: "has already been taken.",
+            ["username"]: "and password do not match",
           });
         }
       })
