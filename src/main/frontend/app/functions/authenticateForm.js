@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fetchData from "./fetchData";
 
-const authenticateForm = (requiredFields, stateGetter, errorSetter) => {
+const authenticateForm = (requiredFields, stateGetter, authSetter, errorSetter) => {
   let submitErrors = {};
   requiredFields.forEach((field) => {
     if (stateGetter[field].trim() === "") {
@@ -30,11 +30,13 @@ const authenticateForm = (requiredFields, stateGetter, errorSetter) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        if (body.length > 0) {
+        if (body.length === 0) {
           errorSetter({
             ...submitErrors,
-            ["username"]: "and password do not match",
+            ["username"]: "and password combination is not match",
           });
+        } else if (body.length > 0) {
+          authSetter(body[0])
         }
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));

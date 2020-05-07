@@ -5,6 +5,7 @@ import authenticateForm from "../functions/authenticateForm";
 const LoginForm = (props) => {
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
+  const [userAuth, setUserAuth] = useState({});
 
   const handleChange = (event) => {
     setLoginForm({
@@ -16,7 +17,12 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (
-      authenticateForm(["username", "password"], loginForm, setErrors) &&
+      authenticateForm(
+        ["username", "password"],
+        loginForm,
+        setUserAuth,
+        setErrors
+      ) &&
       errors.length == 0
     ) {
       console.log("VALID"); // =======
@@ -24,6 +30,9 @@ const LoginForm = (props) => {
     }
     console.log(loginForm); // =======
   };
+
+  console.log("user ", userAuth); // =======
+  console.log("check size, ", Object.entries(userAuth).length); // =======
 
   return (
     <form onSubmit={handleSubmit}>
