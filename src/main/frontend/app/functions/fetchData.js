@@ -9,9 +9,7 @@ const fetchData = (endPoint, setterName) => {
       if (response.ok) {
         return response;
       } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw error;
+        throw new Error(`${response.status} (${response.statusText})`);
       }
     })
     .then((response) => response.json())

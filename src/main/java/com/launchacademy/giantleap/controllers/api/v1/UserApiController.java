@@ -63,6 +63,17 @@ public class UserApiController {
     return userService.findUserByUsernameDto(username);
   }
 
+  @GetMapping("users/checkname/{username}")
+  public Iterable<UserDto> getAllByUsername(@PathVariable String username) {
+    return userService.findAllByUsernameDto(username);
+  }
+
+  @GetMapping("auth/{username}/{password}")
+  public Iterable<UserDto> getAllByUsernameAndPassword(@PathVariable String username,
+      @PathVariable String password) {
+    return userService.findAllByUsernameAndPasswordDto(username, password);
+  }
+
   @PostMapping("user/new")
   public ResponseEntity createUser(@Valid @RequestBody User user,
       BindingResult bindingResult) {

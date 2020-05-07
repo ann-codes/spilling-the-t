@@ -9,5 +9,4 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
   public User findByUsername(String username);
   public List<User> findAll();
   public List<User> findAllByUsername(String username);
-
 }

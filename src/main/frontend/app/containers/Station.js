@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
 import fetchData from "../functions/fetchData"
-import { Link } from "react-router"
-import ReactDom from "react-dom"
 
 const Station = (props) => {
 	const [stations, setStations] = useState([])

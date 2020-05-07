@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ErrorList from "./ErrorList";
 import validateForm from "../functions/validateForm";
 
@@ -40,7 +40,7 @@ const NewUserForm = (props) => {
         ],
         userForm,
         setErrors
-      )
+      ) && errors.length == 0
     ) {
       props.addNewUser(userForm);
       setUserForm(defaultValues);
