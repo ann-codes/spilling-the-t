@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
 import fetchData from "../functions/fetchData"
+import Station from "../components/Station"
+import { Link } from "react-router-dom"
 
-const Station = (props) => {
+const StationContainer = (props) => {
 	const [stations, setStations] = useState([])
 	const [loading, setLoading] = useState(false)
 
@@ -15,7 +17,8 @@ const Station = (props) => {
 	const stationsListItems = stations.map((map) => {
 		return (
 			<li>
-				<Link to="/api/v1/station/{id}">
+				{/* //how to show ind station, not sure */}
+				<Link to={`/station/:${map.id}`}>
 					<h2>
 						{map.name} {map.network} {map.address} {map.state}
 					</h2>
@@ -23,7 +26,12 @@ const Station = (props) => {
 			</li>
 		)
 	})
-	return <ul>{stationsListItems}</ul>
+	return (
+		<ul>
+			{stationsListItems}
+			{/* <Station /> */}
+		</ul>
+	)
 }
 
-export default Station
+export default StationContainer
