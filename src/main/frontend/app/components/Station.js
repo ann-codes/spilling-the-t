@@ -3,7 +3,7 @@ import fetchData from "../functions/fetchData"
 import Station from "../components/Station"
 import { Link } from "react-router-dom"
 
-const Station = (props) => {
+const Station = () => {
 	const [station, setStation] = useState([])
 	const [loading, setLoading] = useState(false)
 	//not sure how to show id to show station
@@ -31,4 +31,4 @@ const Station = (props) => {
 	)
 }
 
-export default StationContainer
+export default Station
