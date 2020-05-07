@@ -16,23 +16,31 @@ const LoginForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (
-      authenticateForm(
-        ["username", "password"],
-        loginForm,
-        setUserAuth,
-        setErrors
-      ) &&
-      errors.length == 0
-    ) {
+
+    let isValid = authenticateForm(
+      ["username", "password"],
+      loginForm,
+      setUserAuth,
+      setErrors
+    );
+    let hasErrors = errors.length == 0
+
+    console.log("isValid", isValid);
+    console.log("has errors, ", errors.length == 0);
+
+    if (isValid && hasErrors) {
       console.log("VALID"); // =======
       setLoginForm({ username: "", password: "" });
+    } else {
+      console.log("NOT VALID", loginForm); // =======
     }
-    console.log(loginForm); // =======
   };
 
   console.log("user ", userAuth); // =======
-  console.log("check size, ", Object.entries(userAuth).length); // =======
+
+  if (Object.entries(userAuth).length > 1) {
+    console.log("FOUND");
+  }
 
   return (
     <form onSubmit={handleSubmit}>

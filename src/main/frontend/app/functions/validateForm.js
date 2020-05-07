@@ -12,7 +12,16 @@ const validateForm = (requiredFields, stateGetter, errorSetter) => {
     }
   });
 
+  const alphaNumOnly = /^[a-zA-Z0-9_]*$/
   if (stateGetter.username) {
+    if (!alphaNumOnly.test(stateGetter["username"])) {
+      submitErrors = {
+        ...submitErrors,
+        ["username"]:
+          "may only contain letters, numbers, and underscores only.",
+      };
+    }
+
     const apiCheckUsernameUnique = `/api/v1/users/checkname/${stateGetter.username}`;
     fetch(apiCheckUsernameUnique, {
       headers: { "Content-Type": "application/json", credentials: "same-origin" },

@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import fetchData from "./fetchData";
-
-const authenticateForm = (requiredFields, stateGetter, authSetter, errorSetter) => {
+const authenticateForm = (
+  requiredFields,
+  stateGetter,
+  authSetter,
+  errorSetter
+) => {
   let submitErrors = {};
   requiredFields.forEach((field) => {
     if (stateGetter[field].trim() === "") {
@@ -12,7 +14,19 @@ const authenticateForm = (requiredFields, stateGetter, authSetter, errorSetter) 
     }
   });
 
-  if (stateGetter.username.length >= 1 && stateGetter.password.length >= 1) {
+  const alphaNumOnly = /^[a-zA-Z0-9_]*$/;
+  if (stateGetter.username) {
+    if (!alphaNumOnly.test(stateGetter["username"])) {
+      submitErrors = {
+        ...submitErrors,
+        ["username"]:
+          "may can only contain letters, numbers, and underscores.",
+      };
+    }
+  } else if (
+    stateGetter.username.length >= 1 &&
+    stateGetter.password.length >= 1
+  ) {
     const apiAuth = `/api/v1/auth/${stateGetter.username}/${stateGetter.password}`;
 
     fetch(apiAuth, {
@@ -36,7 +50,7 @@ const authenticateForm = (requiredFields, stateGetter, authSetter, errorSetter) 
             ["username"]: "and password combination is not match",
           });
         } else if (body.length > 0) {
-          authSetter(body[0])
+          authSetter(body[0]);
         }
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
