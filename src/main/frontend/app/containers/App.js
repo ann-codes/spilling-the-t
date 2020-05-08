@@ -7,6 +7,7 @@ import StationContainer from "./StationContainer"
 import Navigation from "../components/Navigation"
 import Footer from "../components/Footer"
 import StationShowPage from "../components/StationShowPage"
+import NewReviewForm from "../components/NewReviewForm"
 
 const App = (props) => {
 	return (
@@ -22,6 +23,7 @@ const App = (props) => {
 					<Route exact path="/stations/new" component={NewStation} />
 					<Route exact path="/users/new" component={NewUser} />
 					<Route exact path="/station/:id" component={StationShowPage} />
+					<Route exact path="/reviews/new" component={NewReviewForm} />
 				</Switch>
 			</div>
 			<Footer />
