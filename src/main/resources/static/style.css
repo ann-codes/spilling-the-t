@@ -1,3 +1,45 @@
+/* MAIN */
+
+body {
+  font-family: "Carrois Gothic", "Raleway", sans-serif;
+  background-color: white;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+}
+
+.container {
+  padding: 20px;
+}
+
+.img-thumb-resize {
+  display: block;
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
+/* FOUNDATION TWEAKS */
+
+.media-object {
+  font-size: 1rem;
+}
+
+/* GENERAL */
+
 .align-center {
   text-align: center;
+}
+
+
+/* 404 Fade In */
+.fade-in {
+  animation: fadeIn ease 4s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

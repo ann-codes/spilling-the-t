@@ -21,6 +21,7 @@ const StationContainer = (props) => {
         network={map.network}
         name={map.name}
         lineName={map.lineName}
+        state={map.state}
         imageUrl={map.imageUrl}
       />
     );
