@@ -3,6 +3,9 @@ package com.launchacademy.giantleap.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
@@ -15,7 +18,10 @@ import java.util.Date;
 @Entity
 @Table(name = "reviews")
 @Data
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Getter
+@Setter
+@NoArgsConstructor
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Review {
     @Id
     @SequenceGenerator(name="review_generator", sequenceName="reviews_id_seq", allocationSize = 1)
@@ -55,21 +61,23 @@ public class Review {
     @Range(min=1, max=5)
     private Integer overallRating;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="station_id", nullable = false)
-    @JsonIgnoreProperties("review")
+    @JsonIgnoreProperties("reviews")
     private Station station;
-    @JsonBackReference
-    public Station getStation() {
-        return station;
-    }
+//    @JsonBackReference
+//    public Station getStation() {
+//        return station;
+//    }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
-    @JsonIgnoreProperties("review")
+    @JsonIgnoreProperties("reviews")
     private User user;
-    @JsonBackReference
-    public  User getUser() {
-        return user;
-    }
+//    @JsonBackReference
+//    public  User getUser() {
+//        return user;
+//    }
 }

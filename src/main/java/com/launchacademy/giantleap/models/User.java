@@ -30,7 +30,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "users")
 @Data
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
   @Id
@@ -70,11 +70,11 @@ public class User {
 
   @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = false)
   @JsonIgnoreProperties("user")
-  @LazyCollection(LazyCollectionOption.FALSE) // new
+//  @LazyCollection(LazyCollectionOption.FALSE) // new
   private List<Review> reviews = new ArrayList<>();
-  @JsonManagedReference
-  public List<Review> getReviews() {
-    return reviews;
-  }
+//  @JsonManagedReference
+//  public List<Review> getReviews() {
+//    return reviews;
+//  }
 
 }
