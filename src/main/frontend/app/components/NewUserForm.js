@@ -47,9 +47,6 @@ const NewUserForm = (props) => {
     }
   };
 
-  console.log(Object.entries(errors).length)
-  console.log(errors)
-
   return (
     <form onSubmit={handleSubmit}>
       <h2>Create a New Account</h2>
