@@ -40,12 +40,15 @@ const NewUserForm = (props) => {
         ],
         userForm,
         setErrors
-      ) && errors.length == 0
+      ) && Object.entries(errors).length == 0
     ) {
       props.addNewUser(userForm);
       setUserForm(defaultValues);
     }
   };
+
+  console.log(Object.entries(errors).length)
+  console.log(errors)
 
   return (
     <form onSubmit={handleSubmit}>
