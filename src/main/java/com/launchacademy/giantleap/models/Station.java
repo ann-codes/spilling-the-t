@@ -33,7 +33,6 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @Data
 @Component
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Station {
 
   @Id
@@ -91,12 +90,7 @@ public class Station {
   @Column(name = "admin_approved")
   private Boolean adminApproved;
 
-  @OneToMany(mappedBy = "station", fetch = FetchType.LAZY, orphanRemoval = false)
+  @OneToMany(mappedBy = "station")
   @JsonIgnoreProperties("station")
-  @LazyCollection(LazyCollectionOption.FALSE) // new
-  private List<Review> reviews = new ArrayList<>();
-  @JsonManagedReference // new
-  public List<Review> getReviews() {
-    return reviews;
-  }
+  private List<Review> reviews;
 }

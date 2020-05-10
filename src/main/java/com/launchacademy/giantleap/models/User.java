@@ -1,12 +1,9 @@
 package com.launchacademy.giantleap.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +16,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.Table;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.stereotype.Component;
 
 @Getter
@@ -30,7 +25,6 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "users")
 @Data
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
   @Id
@@ -68,13 +62,7 @@ public class User {
   @Column(name = "image_url")
   private String imageUrl;
 
-  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = false)
+  @OneToMany(mappedBy = "user")
   @JsonIgnoreProperties("user")
-  @LazyCollection(LazyCollectionOption.FALSE) // new
-  private List<Review> reviews = new ArrayList<>();
-  @JsonManagedReference
-  public List<Review> getReviews() {
-    return reviews;
-  }
-
+  private List<Review> reviews;
 }
