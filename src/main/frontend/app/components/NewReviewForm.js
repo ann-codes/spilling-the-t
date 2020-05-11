@@ -71,14 +71,41 @@ const NewReviewForm = (props) => {
       />
       <br />
       <label>Cleanliness Rating</label>
-      <input type="range" name="cleanliness">
-        <output
-          for="cleanliness"
-          onforminput="value = cleanliness.valueAsNumber;"
-        >
-          
-        </output>
-      </input>
+      <input
+        type="range"
+        id="cleanliness"
+        min="1"
+        value={form.cleanliness}
+        max="5"
+        step="1"
+      />
+      <label>On-Time Rating</label>
+      <input
+        type="range"
+        id="onTime"
+        min="1"
+        value={form.onTime}
+        max="5"
+        step="1"
+      />
+      <label>Capacity Rating</label>
+      <input
+        type="range"
+        id="capacity"
+        min="1"
+        value={form.capacity}
+        max="5"
+        step="1"
+      />
+      <label>Overall Rating</label>
+      <input
+        type="range"
+        id="overallRating"
+        min="1"
+        value={form.overallRating}
+        max="5"
+        step="1"
+      />
     </form>
   );
 };
