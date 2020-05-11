@@ -20,6 +20,9 @@ const Navigation = (props) => {
               <Link to="/users/new">Create a new account</Link>
             </li>
             <li>
+              <Link to="/admin">Admin Login</Link>
+            </li>
+            <li>
               <Link to="/login">Login</Link>
             </li>
           </ul>
