@@ -17,7 +17,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <header id="header">
-        <img src="https://imgur.com/JQKEF1I.jpg" />
+        <img src="https://i.ibb.co/ngGmTZv/header.png" />
       </header>
       <Navigation />
       <div className="row medium-10 columns container">

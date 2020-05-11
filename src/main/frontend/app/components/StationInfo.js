@@ -1,6 +1,7 @@
 import React from "react";
 
 const StationInfo = (props) => {
+
   return (
     <div className="text-center">
       <h2>{props.station.name}</h2>
