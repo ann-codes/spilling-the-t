@@ -1,8 +1,6 @@
 package com.launchacademy.giantleap.dtos;
 
-import com.launchacademy.giantleap.models.Review;
 import com.launchacademy.giantleap.models.User;
-import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
