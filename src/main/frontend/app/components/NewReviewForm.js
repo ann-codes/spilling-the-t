@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import ErrorList from "./ErrorList";
 import validateForm from "../functions/validateForm";
-import logo from "./logo.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Icon from "./Icons";
-import { Form, Input, FormGroup, Container, Label } from "reactstrap";
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-import { SingleDatePicker } from "react-dates";
 
 const NewReviewForm = (props) => {
   const defaultForm = {
@@ -56,7 +49,7 @@ const NewReviewForm = (props) => {
     <form onSubmit={handleSubmit}>
       <h2>Hello From the New Review Form</h2>
       <ErrorList errors={errors} />
-      <label>Review Title</label>
+      <label>Title</label>
       <input
         name="title"
         id="title"
@@ -66,25 +59,26 @@ const NewReviewForm = (props) => {
       />
       <br />
       <label>Date</label>
-      <SingleDatePicker
-        // showClearDate={true}
-        customInputIcon={
-          <svg className="icon icon-small">
-            <Icon icon="ICON_CALENDER" className="icon icon-large" />
-          </svg>
-        }
-        inputIconPosition="after"
-        small={true}
-        block={false}
-        numberOfMonths={1}
-        date={this.state.date}
-        onDateChange={(date) => this.handleDateChange(date)}
-        focused={this.state.focused}
-        onFocusChange={({ focused }) => this.setState({ focused })}
-        openDirection="up"
-        hideKeyboardShortcutsPanel={true}
+      <input type="date" id="date" name="date" value={form.date} />
+      <br />
+      <label>Review</label>
+      <input
+        name="review"
+        id="review"
+        type="text"
+        value={form.review}
+        onChange={handleChange}
       />
       <br />
+      <label>Cleanliness Rating</label>
+      <input type="range" name="cleanliness">
+        <output
+          for="cleanliness"
+          onforminput="value = cleanliness.valueAsNumber;"
+        >
+          
+        </output>
+      </input>
     </form>
   );
 };

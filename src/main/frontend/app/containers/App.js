@@ -1,42 +1,8 @@
-<<<<<<< HEAD
-import React from "react"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
-import NewStation from "./NewStation"
-import NewUser from "./NewUser"
-import Login from "./Login"
-import StationContainer from "./StationContainer"
-import Navigation from "../components/Navigation"
-import Footer from "../components/Footer"
-import StationShowPage from "../components/StationShowPage"
-import NewReviewForm from "../components/NewReviewForm"
-
-const App = (props) => {
-	return (
-		<BrowserRouter>
-			<header>
-				<h1>Spilling the T</h1>
-			</header>
-			<Navigation />
-			<div className="row medium-10 columns">
-				<Switch>
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/stations" component={StationContainer} />
-					<Route exact path="/stations/new" component={NewStation} />
-					<Route exact path="/users/new" component={NewUser} />
-					<Route exact path="/station/:id" component={StationShowPage} />
-					<Route exact path="/reviews/new" component={NewReviewForm} />
-				</Switch>
-			</div>
-			<Footer />
-		</BrowserRouter>
-	)
-}
-export default App
-=======
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NewStation from "./NewStation";
 import NewUser from "./NewUser";
+import NewReview from "./NewReview";
 import Login from "./Login";
 import StationContainer from "./StationContainer";
 import Navigation from "../components/Navigation";
@@ -56,6 +22,7 @@ const App = (props) => {
           <Route exact path="/stations/new" component={NewStation} />
           <Route exact path="/station/:id" component={StationShowPage} />
           <Route exact path="/users/new" component={NewUser} />
+          <Route exact path="/reviews/new" component={NewReview} />
           <Route exact path="/login" component={Login} />
         </Switch>
       </div>
@@ -64,4 +31,3 @@ const App = (props) => {
   );
 };
 export default App;
->>>>>>> 38b4cbb24fbaf0e96b9dad46da183f8a86a46198
