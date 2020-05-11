@@ -10,6 +10,8 @@ body {
   padding: 20px;
 }
 
+/* TWEAKS */
+
 .img-thumb-resize {
   display: block;
   max-width: 200px;
@@ -18,18 +20,30 @@ body {
   height: auto;
 }
 
+.user-img-thumb-resize {
+  display: block;
+  max-width: 100px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+}
+
+.dropdown-width-adj {
+  width: 150px;
+}
+
 /* FOUNDATION TWEAKS */
 
 .media-object {
   font-size: 1rem;
 }
 
+
 /* GENERAL */
 
 .align-center {
   text-align: center;
 }
-
 
 /* 404 Fade In */
 .fade-in {
