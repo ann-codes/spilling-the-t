@@ -1,6 +1,8 @@
 package com.launchacademy.giantleap.controllers.api.v1;
 
+import com.launchacademy.giantleap.models.Review;
 import com.launchacademy.giantleap.models.Station;
+import com.launchacademy.giantleap.repositories.ReviewRepository;
 import com.launchacademy.giantleap.repositories.StationRepository;
 
 import java.util.List;
@@ -19,10 +21,13 @@ import javax.validation.Valid;
 public class StationApiController {
 
   private StationRepository stationRepository;
+  private ReviewRepository reviewRepository;
 
   @Autowired
-  public StationApiController(StationRepository stationRepository) {
+  public StationApiController(StationRepository stationRepository,
+      ReviewRepository reviewRepository) {
     this.stationRepository = stationRepository;
+    this.reviewRepository = reviewRepository;
   }
 
   @NoArgsConstructor
@@ -55,6 +60,14 @@ public class StationApiController {
     }
   }
 
+  @DeleteMapping("/admin/station/delete/{id}")
+  public Iterable<Station> deleteStation(@PathVariable Integer id) {
+    List<Review> reviewsToDelete = reviewRepository.findAllByStationId(id);
+    reviewRepository.deleteAll(reviewsToDelete);
+    stationRepository.deleteById(id);
+    return stationRepository.findAll();
+  }
+
   @PutMapping("/admin/station/{id}/{decision}")
   public Station adminDecision(@RequestBody Station newStation, @PathVariable Integer id,
       @PathVariable String decision) {
@@ -78,26 +91,26 @@ public class StationApiController {
           }
       ).orElseThrow(StationNotFoundException::new);
     } else if (decision.equals("notapproved")) {
-        return stationRepository.findById(id).map(
-            station -> {
-                station.setName(newStation.getName());
-                station.setNetwork(newStation.getNetwork());
-                station.setLineName(newStation.getLineName());
-                station.setAddress(newStation.getAddress());
-                station.setCity(newStation.getCity());
-                station.setState(newStation.getState());
-                station.setZip(newStation.getZip());
-                station.setCountry(newStation.getCountry());
-                station.setImageUrl(newStation.getImageUrl());
-                station.setDescription(newStation.getDescription());
-                station.setCalculatedCost(newStation.getCalculatedCost());
-                station.setAdminApproved(false);
-                return stationRepository.save(station);
-            }
-        ).orElseThrow(StationNotFoundException::new);
+      return stationRepository.findById(id).map(
+          station -> {
+            station.setName(newStation.getName());
+            station.setNetwork(newStation.getNetwork());
+            station.setLineName(newStation.getLineName());
+            station.setAddress(newStation.getAddress());
+            station.setCity(newStation.getCity());
+            station.setState(newStation.getState());
+            station.setZip(newStation.getZip());
+            station.setCountry(newStation.getCountry());
+            station.setImageUrl(newStation.getImageUrl());
+            station.setDescription(newStation.getDescription());
+            station.setCalculatedCost(newStation.getCalculatedCost());
+            station.setAdminApproved(false);
+            return stationRepository.save(station);
+          }
+      ).orElseThrow(StationNotFoundException::new);
     } else {
       return null;
     }
-
   }
+
 }

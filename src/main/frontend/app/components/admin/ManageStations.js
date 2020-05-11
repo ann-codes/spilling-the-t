@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fetchData from "../../functions/fetchData";
 import putData from "../../functions/putData";
+import deleteData from "../../functions/deleteData";
 import StationsTableHeading from "./StationsTableHeading";
 import StationsTableRows from "./StationsTableRows";
 
@@ -10,6 +11,7 @@ const ManageStations = (props) => {
 
   const stationsGetApi = "/api/v1/stations/all";
   const decisionPutApi = "/api/v1/admin/station";
+  const deleteApiEndpoint = "/api/v1/admin/station/delete";
 
   const fetchStations = () => fetchData(stationsGetApi, setStations);
   useEffect(fetchStations, []);
@@ -44,12 +46,19 @@ const ManageStations = (props) => {
     }
   };
 
+  const deleteOnSubmit = (event) => {
+    const matchId = Number(event.target.getAttribute("data-check-id"));
+    const stationToDelete = stations.find((app) => app.id === matchId);
+    deleteData(`${deleteApiEndpoint}/${matchId}`, stationToDelete);
+  };
+
   const mapStations = stations.map((station) => (
     <StationsTableRows
       key={station.id}
       station={station}
       handleChange={handleChange}
       submitDecision={submitDecision}
+      deleteOnSubmit={deleteOnSubmit}
     />
   ));
 
