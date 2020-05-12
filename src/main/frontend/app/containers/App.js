@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NewStation from "./NewStation";
 import NewUser from "./NewUser";
+import NewReview from "./NewReview";
 import Login from "./Login";
 import StationContainer from "./StationContainer";
 import Navigation from "../components/Navigation";
@@ -27,6 +28,7 @@ const App = (props) => {
           <Route exact path="/stations/new" component={NewStation} />
           <Route exact path="/station/:id" component={StationShowPage} />
           <Route exact path="/users/new" component={NewUser} />
+          <Route exact path="/reviews/new" component={NewReview} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/admin" component={MainAdmin} />
           <Route exact path="/admin/manage/stations" component={ManageStations} />
