@@ -5,6 +5,7 @@ const UsersTableHeadings = () => {
     <thead>
       <tr>
         <th>ID</th>
+        <th>Username</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Display Name</th>

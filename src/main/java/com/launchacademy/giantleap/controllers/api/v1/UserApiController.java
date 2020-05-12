@@ -58,7 +58,7 @@ public class UserApiController {
     return userRepo.findByUsername(username);
   }
 
-  @GetMapping("user-private/{username}")
+  @GetMapping("user-hidden/{username}")
   public UserDto getUserByUsernameDto(@PathVariable String username) {
     return userService.findUserByUsernameDto(username);
   }
