@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ErrorList from "./ErrorList";
 import validateForm from "../functions/validateForm";
+import fetchData from "../functions/fetchData";
+import NewReview from "../containers/NewReview";
 
 const NewReviewForm = (props) => {
   const defaultForm = {
@@ -11,14 +13,40 @@ const NewReviewForm = (props) => {
     onTime: "",
     capacity: "",
     overallRating: "",
-    stationId: "",
-    userId: "",
+    station: "",
+    user: "",
   };
 
   const [form, setForm] = useState([defaultForm]);
   const [errors, setErrors] = useState([]);
 
   const clearForm = () => setForm(defaultForm);
+
+  const [stations, setStations] = useState([]);
+  const apiStationsEndpoint = "/api/v1/stations/all";
+  const fetchStations = () => fetchData(apiStationsEndpoint, setStations);
+  useEffect(fetchStations, []);
+  let listStations;
+  if (stations !== undefined) {
+    listStations = stations.map((station) => (
+      <option key={station.id} type="text" value={station.name}>
+        {station.name}
+      </option>
+    ));
+  }
+
+  const [users, setUsers] = useState([]);
+  const apiUsersEndpoint = "/api/v1/users/all";
+  const fetchUsers = () => fetchData(apiUsersEndpoint, setUsers);
+  useEffect(fetchUsers, []);
+  let listUsers;
+  if (users !== undefined) {
+    listUsers = users.map((user) => (
+      <option key={user.id} type="text" value={user.username}>
+        {user.username}
+      </option>
+    ));
+  }
 
   const handleChange = (event) => {
     setForm({
@@ -29,25 +57,28 @@ const NewReviewForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (validateForm(["title", "review"], form, setErrors)) {
-      const formPayload = {
-        title: form.title,
-        date: form.date,
-        review: form.review,
-        cleanliness: form.cleanliness,
-        onTime: form.onTime,
-        capacity: form.capacity,
-        overallRating: form.overallRating,
-        stationId: form.stationId,
-        userId: form.userId,
-      };
-      props.addNewReview(formPayload);
-      setForm(defaultForm);
-    }
+    const formPayload = {
+      title: form.title,
+      date: form.date,
+      review: form.review,
+      cleanliness: parseInt(form.cleanliness),
+      onTime: parseInt(form.onTime),
+      capacity: parseInt(form.capacity),
+      overallRating: parseInt(form.overallRating),
+      station: {
+        ...stations.find((station) => station.name === form.station),
+      },
+      user: {
+        ...users.find((user) => user.username === form.user),
+      },
+    };
+    props.addNewReview(formPayload);
+    setForm(defaultForm);
   };
+
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Hello From the New Review Form</h2>
+      <h2>Submit A New Review!</h2>
       <ErrorList errors={errors} />
       <label>Title</label>
       <input
@@ -57,10 +88,8 @@ const NewReviewForm = (props) => {
         value={form.title}
         onChange={handleChange}
       />
-      <br />
       <label>Date</label>
       <input type="date" id="date" name="date" value={form.date} />
-      <br />
       <label>Review</label>
       <input
         name="review"
@@ -69,43 +98,144 @@ const NewReviewForm = (props) => {
         value={form.review}
         onChange={handleChange}
       />
-      <br />
       <label>Cleanliness Rating</label>
-      <input
-        type="range"
+      <select
+        name="cleanliness"
         id="cleanliness"
-        min="1"
         value={form.cleanliness}
-        max="5"
-        step="1"
-      />
+        onChange={handleChange}
+        required
+      >
+        <option type="text" value="">
+          -
+        </option>
+        <option type="number" value="1">
+          1
+        </option>
+        <option type="number" value="2">
+          2
+        </option>
+        <option type="number" value="3">
+          3
+        </option>
+        <option type="number" value="4">
+          4
+        </option>
+        <option type="number" value="5">
+          5
+        </option>
+      </select>
       <label>On-Time Rating</label>
-      <input
-        type="range"
+      <select
+        name="onTime"
         id="onTime"
-        min="1"
         value={form.onTime}
-        max="5"
-        step="1"
-      />
+        onChange={handleChange}
+        required
+      >
+        <option type="text" value="">
+          -
+        </option>
+        <option type="number" value="1">
+          1
+        </option>
+        <option type="number" value="2">
+          2
+        </option>
+        <option type="number" value="3">
+          3
+        </option>
+        <option type="number" value="4">
+          4
+        </option>
+        <option type="number" value="5">
+          5
+        </option>
+      </select>
       <label>Capacity Rating</label>
-      <input
-        type="range"
+      <select
+        name="capacity"
         id="capacity"
-        min="1"
         value={form.capacity}
-        max="5"
-        step="1"
-      />
+        onChange={handleChange}
+        required
+      >
+        <option type="text" value="">
+          -
+        </option>
+        <option type="number" value="1">
+          1
+        </option>
+        <option type="number" value="2">
+          2
+        </option>
+        <option type="number" value="3">
+          3
+        </option>
+        <option type="number" value="4">
+          4
+        </option>
+        <option type="number" value="5">
+          5
+        </option>
+      </select>
       <label>Overall Rating</label>
-      <input
-        type="range"
+      <select
+        name="overallRating"
         id="overallRating"
-        min="1"
         value={form.overallRating}
-        max="5"
-        step="1"
-      />
+        onChange={handleChange}
+        required
+      >
+        <option type="text" value="">
+          -
+        </option>
+        <option type="number" value="1">
+          1
+        </option>
+        <option type="number" value="2">
+          2
+        </option>
+        <option type="number" value="3">
+          3
+        </option>
+        <option type="number" value="4">
+          4
+        </option>
+        <option type="number" value="5">
+          5
+        </option>
+      </select>
+      <label>Station</label>
+      <select
+        name="station"
+        id="station"
+        value={form.station}
+        onChange={handleChange}
+        required
+      >
+        <option type="text" value="">
+          -
+        </option>
+        {listStations}
+      </select>
+      <label>Post Review As</label>
+      <select
+        name="user"
+        id="user"
+        value={form.user}
+        onChange={handleChange}
+        required
+      >
+        <option type="text" value="">
+          -
+        </option>
+        {listUsers}
+      </select>
+      <input type="submit" className="button" />
+      <button type="button" className="button" onClick={clearForm}>
+        Clear
+      </button>
     </form>
   );
 };
