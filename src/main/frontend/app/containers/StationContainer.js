@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react"
 import fetchData from "../functions/fetchData"
 import StationCard from "../components/StationCard"
@@ -28,11 +29,13 @@ const StationContainer = (props) => {
 		)
 	})
 
-	return (
-		<div>
-			<h1>{stationsListItems}</h1>
-		</div>
-	)
-}
+  return (
+    <Fragment>
+      <h1>Explore the Stations</h1>
+      {stationsListItems}
+    </Fragment>
+  );
+};
+
 
 export default StationContainer
