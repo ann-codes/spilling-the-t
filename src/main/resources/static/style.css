@@ -6,8 +6,39 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
 }
 
+header {
+  background-color: white;
+}
+
 .container {
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
+}
+
+footer {
+  padding: 2rem;
+  margin: 2.5rem 0 0 0;
+  color: white;
+  text-align: center;
+  background-color: black;
+}
+
+a {
+  color: rgb(12, 105, 0);
+}
+
+a:hover {
+  color: rgb(62, 158, 49);
+}
+
+/* TWEAKS */
+
+.masthead {
+  max-width: 1000px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
 }
 
 .img-thumb-resize {
@@ -26,10 +57,37 @@ body {
   height: auto;
 }
 
+.dropdown-width-adj {
+  width: 150px;
+}
+
+.admin-section-text {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+  padding: 0;
+}
+
 /* FOUNDATION TWEAKS */
 
 .media-object {
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+.callout {
+  padding: 2rem;
+}
+
+.button {
+  margin: 0;
+}
+
+.menu {
+  font-size: 1.2rem;
+}
+
+.card-section {
+  padding: 2rem;
 }
 
 /* GENERAL */
@@ -38,8 +96,15 @@ body {
   text-align: center;
 }
 
+.button-margin-left {
+  margin-left: 1rem;
+}
 
-/* 404 Fade In */
+.button-margin-top {
+  margin-top: 0.9rem;
+}
+
+/* MISC */
 .fade-in {
   animation: fadeIn ease 4s;
 }
@@ -49,5 +114,17 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 6s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

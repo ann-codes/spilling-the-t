@@ -1,6 +1,8 @@
 package com.launchacademy.giantleap.controllers.api.v1;
 
+import com.launchacademy.giantleap.models.Review;
 import com.launchacademy.giantleap.models.Station;
+import com.launchacademy.giantleap.repositories.ReviewRepository;
 import com.launchacademy.giantleap.repositories.StationRepository;
 
 import java.util.List;
@@ -17,39 +19,119 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/v1")
 public class StationApiController {
-    private StationRepository stationRepository;
 
-    @Autowired
-    public StationApiController(StationRepository stationRepository) {
-        this.stationRepository = stationRepository;
+  private StationRepository stationRepository;
+  private ReviewRepository reviewRepository;
+
+  @Autowired
+  public StationApiController(StationRepository stationRepository,
+      ReviewRepository reviewRepository) {
+    this.stationRepository = stationRepository;
+    this.reviewRepository = reviewRepository;
+  }
+
+  @NoArgsConstructor
+  private class StationNotFoundException extends RuntimeException {
+
+    @ResponseBody
+    @ExceptionHandler(StationNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String stationNotFoundHandler(StationNotFoundException ex) {
+      return ex.getMessage();
     }
+  }
 
-    @NoArgsConstructor
-    private class StationNotFoundException extends RuntimeException {
-        @ResponseBody
-        @ExceptionHandler(StationNotFoundException.class)
-        @ResponseStatus(HttpStatus.NOT_FOUND)
-        String stationNotFoundHandler(StationNotFoundException ex) {
-            return ex.getMessage();
+  @GetMapping("/stations/all")
+  public Iterable<Station> getAllStations() {
+    return stationRepository.findAll();
+  }
+
+  @GetMapping("/station/{id}")
+  public Station getOneType(@PathVariable Integer id) {
+    return stationRepository.findById(id).orElseThrow(StationNotFoundException::new);
+  }
+
+  @PostMapping("/stations/new")
+  public ResponseEntity create(@RequestBody @Valid Station station, BindingResult bindingResult) {
+    if (bindingResult.hasErrors()) {
+      return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
+    } else {
+      return new ResponseEntity<Station>(stationRepository.save(station), HttpStatus.CREATED);
+    }
+  }
+
+  @DeleteMapping("/admin/station/delete/{id}")
+  public Iterable<Station> deleteStation(@PathVariable Integer id) {
+    List<Review> reviewsToDelete = reviewRepository.findAllByStationId(id);
+    reviewRepository.deleteAll(reviewsToDelete);
+    stationRepository.deleteById(id);
+    return stationRepository.findAll();
+  }
+
+  @PutMapping("/edit/station/{id}")
+  public Station editStation(@RequestBody Station newStation, @PathVariable Integer id) {
+    return stationRepository.findById(id).map(
+        station -> {
+          station.setName(newStation.getName());
+          station.setNetwork(newStation.getNetwork());
+          station.setLineName(newStation.getLineName());
+          station.setAddress(newStation.getAddress());
+          station.setCity(newStation.getCity());
+          station.setState(newStation.getState());
+          station.setZip(newStation.getZip());
+          station.setCountry(newStation.getCountry());
+          station.setImageUrl(newStation.getImageUrl());
+          station.setDescription(newStation.getDescription());
+          station.setCalculatedCost(newStation.getCalculatedCost());
+          station.setAdminApproved(newStation.getAdminApproved());
+          return stationRepository.save(station);
         }
-    }
+    ).orElseThrow(StationNotFoundException::new);
+  }
 
-    @GetMapping("/stations/all")
-    public Iterable<Station> getAllStations() {
-        return stationRepository.findAll();
-    }
+  @PutMapping("/admin/station/{id}/{decision}")
+  public Station adminDecision(@RequestBody Station newStation, @PathVariable Integer id,
+      @PathVariable String decision) {
 
-    @GetMapping("/station/{id}")
-    public Station getOneType(@PathVariable Integer id) {
-        return stationRepository.findById(id).orElseThrow(StationNotFoundException::new);
+    if (decision.equals("approved")) {
+      return stationRepository.findById(id).map(
+          station -> {
+            station.setName(newStation.getName());
+            station.setNetwork(newStation.getNetwork());
+            station.setLineName(newStation.getLineName());
+            station.setAddress(newStation.getAddress());
+            station.setCity(newStation.getCity());
+            station.setState(newStation.getState());
+            station.setZip(newStation.getZip());
+            station.setCountry(newStation.getCountry());
+            station.setImageUrl(newStation.getImageUrl());
+            station.setDescription(newStation.getDescription());
+            station.setCalculatedCost(newStation.getCalculatedCost());
+            station.setAdminApproved(true);
+            return stationRepository.save(station);
+          }
+      ).orElseThrow(StationNotFoundException::new);
+    } else if (decision.equals("notapproved")) {
+      return stationRepository.findById(id).map(
+          station -> {
+            station.setName(newStation.getName());
+            station.setNetwork(newStation.getNetwork());
+            station.setLineName(newStation.getLineName());
+            station.setAddress(newStation.getAddress());
+            station.setCity(newStation.getCity());
+            station.setState(newStation.getState());
+            station.setZip(newStation.getZip());
+            station.setCountry(newStation.getCountry());
+            station.setImageUrl(newStation.getImageUrl());
+            station.setDescription(newStation.getDescription());
+            station.setCalculatedCost(newStation.getCalculatedCost());
+            station.setAdminApproved(false);
+            return stationRepository.save(station);
+          }
+      ).orElseThrow(StationNotFoundException::new);
+    } else {
+      return null;
     }
+  }
 
-    @PostMapping("/stations/new")
-    public ResponseEntity create(@RequestBody @Valid Station station, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
-        } else {
-            return new ResponseEntity<Station>(stationRepository.save(station), HttpStatus.CREATED);
-        }
-    }
 }

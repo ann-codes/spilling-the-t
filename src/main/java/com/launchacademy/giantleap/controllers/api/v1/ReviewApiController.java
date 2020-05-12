@@ -5,6 +5,7 @@ import com.launchacademy.giantleap.models.User;
 import com.launchacademy.giantleap.repositories.ReviewRepository;
 import com.launchacademy.giantleap.repositories.StationRepository;
 import com.launchacademy.giantleap.repositories.UserRepository;
+import java.util.List;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -64,4 +65,9 @@ public class ReviewApiController {
                     HttpStatus.CREATED);
         }
     }
+    @GetMapping("reviews/by-station/{byStationId}")
+    public List<Review> getReviewByStation(@PathVariable Integer byStationId) {
+        return reviewRepository.findAllByStationId(byStationId);
+    }
+
 }

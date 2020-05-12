@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import fetchData from "../functions/fetchData";
 import StationCard from "../components/StationCard";
 
@@ -27,7 +27,12 @@ const StationContainer = (props) => {
     );
   });
 
-  return <h1>{stationsListItems}</h1>;
+  return (
+    <Fragment>
+      <h1>Explore the Stations</h1>
+      {stationsListItems}
+    </Fragment>
+  );
 };
 
 export default StationContainer;
