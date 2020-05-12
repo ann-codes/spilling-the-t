@@ -13,6 +13,10 @@ const StationInfo = (props) => {
 				<span className="bold-me">My State: </span>
 				{props.station.state}
 			</p>
+			<p className="text-center">
+				<h2>Test Title{props.station.reviews.title}</h2>
+				<h2>Test date {props.station.reviews.date}</h2>
+			</p>
 		</div>
 	)
 }
