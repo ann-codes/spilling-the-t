@@ -1,9 +1,21 @@
 import React from "react"
-import ReviewContainer from "../containers/ReviewContainer"
-
 const StationInfo = (props) => {
-	let reviewArray = [props.reviews]
-
+	const reviews = props.station.reviews
+	console.log(reviews)
+	const mapReviews = reviews.map((review) => {
+		return (
+			<div>
+				<p>
+					Title: <h2>{review.title}</h2>
+					Date: <h5>{review.date}</h5>
+					Clean: <h5>{review.cleanliness} out of 5</h5>
+					<p>
+						<h4>{review.review}</h4>
+					</p>
+				</p>
+			</div>
+		)
+	})
 	return (
 		<div className="text-center">
 			<h2>{props.station.name}</h2>
@@ -16,13 +28,9 @@ const StationInfo = (props) => {
 				<span className="bold-me">My State: </span>
 				{props.station.state}
 			</p>
-			<ReviewContainer />
-			<p className="text-center">
-				<h2>Test Title {reviewArray}</h2>
-				<h2>Test date {reviewListItems}</h2>
-			</p>
+			<h2>Reviews</h2>
+			{mapReviews}
 		</div>
 	)
 }
-
 export default StationInfo

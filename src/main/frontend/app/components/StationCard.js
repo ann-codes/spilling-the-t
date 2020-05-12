@@ -1,32 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import ReviewContainer from "../containers/ReviewContainer"
 
 const StationCard = (props) => {
-	//reviewContainer renders in here function similar stationcard
-	//create new array for props.review use the reviews through props
-	//take props from statuion container create new array
-	//new array should have props.reviews.first & .last
-
-	//render the reviewList passing down the new review array as props
-	//add stationinfo have a review list array render
-
-	let reviewArray = [props.reviews.first, props.last]
-
-	const reviewsListItems = reviewArray.map((map) => {
-		return (
-			<ReviewContainer
-				key={map.id}
-				id={map.id}
-				network={map.network}
-				name={map.name}
-				lineName={map.lineName}
-				state={map.state}
-				imageUrl={map.imageUrl}
-				reviews={map.reviews}
-			/>
-		)
-	})
 	return (
 		<div className="callout">
 			<div className="media-object">
@@ -50,7 +25,6 @@ const StationCard = (props) => {
 						<Link to={`station/${props.id}`}>Learn more!</Link>
 					</p>
 				</div>
-				<h1>{reviewsListItems}</h1>
 			</div>
 		</div>
 	)
