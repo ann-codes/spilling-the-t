@@ -139,3 +139,9 @@ a:hover {
     opacity: 0;
   }
 }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
