@@ -85,7 +85,7 @@ const LoginForm = (props) => {
   console.log("user ", userFound); // =======
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="callout" onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
       <h2>Login</h2>
       <label>Username</label>
@@ -105,7 +105,7 @@ const LoginForm = (props) => {
         value={loginForm.password}
         onChange={handleChange}
       />
-      <input type="submit" className="button" />
+      <input type="submit" className="button secondary large" value="Login" />
     </form>
   );
 };
