@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const StationsTableRows = (props) => {
-  const linkString = "";
-
   return (
     <tr>
       <td>{props.station.id}</td>
@@ -37,7 +35,7 @@ const StationsTableRows = (props) => {
         <Link
           className="button success"
           data-check-id={props.station.id}
-          to={linkString}
+          to={`/edit/station/${props.station.id}`}
         >
           Edit Station
         </Link>

@@ -46,7 +46,7 @@ const LoginForm = (props) => {
         value={loginForm.password}
         onChange={handleChange}
       />
-      <input type="submit" className="button secondary large" />
+      <input type="submit" className="button secondary large" value="Login" />
     </form>
   );
 };

@@ -28,11 +28,7 @@ const App = (props) => {
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/admin" component={MainAdmin} />
-          <Route
-            exact
-            path="/admin/manage/stations"
-            component={ManageStations}
-          />
+          <Route exact path="/admin/manage/stations" component={ManageStations} />
           <Route exact path="/admin/manage/reviews" component={ManageReviews} />
           <Route exact path="/admin/manage/users" component={ManageUsers} />
           <Route exact path="/edit/station/:id" component={StationEdit} />

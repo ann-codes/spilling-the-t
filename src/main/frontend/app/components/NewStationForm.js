@@ -69,7 +69,7 @@ const NewStationForm = (props) => {
   };
   return (
     <form className="callout" onSubmit={handleSubmit}>
-      <h2>Hello From the New Station Form</h2>
+      <h2>Submit a New Station</h2>
       <ErrorList errors={errors} />
       <label>Transit Network</label>
       <input
@@ -185,8 +185,16 @@ const NewStationForm = (props) => {
         onChange={handleChange}
       />
       <br />
-      <input type="submit" className="button secondary large" />
-      <button type="button" className="button secondary large button-margin-left" onClick={clearForm}>
+      <input
+        type="submit"
+        className="button secondary large"
+        value="Submit Station"
+      />
+      <button
+        type="button"
+        className="button secondary large button-margin-left"
+        onClick={clearForm}
+      >
         Clear
       </button>
     </form>

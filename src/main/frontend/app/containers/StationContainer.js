@@ -30,7 +30,6 @@ const StationContainer = (props) => {
   return (
     <Fragment>
       <h1>Explore the Stations</h1>
-
       {stationsListItems}
     </Fragment>
   );
