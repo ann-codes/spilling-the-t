@@ -68,6 +68,27 @@ public class StationApiController {
     return stationRepository.findAll();
   }
 
+  @PutMapping("/edit/station/{id}")
+  public Station editStation(@RequestBody Station newStation, @PathVariable Integer id) {
+    return stationRepository.findById(id).map(
+        station -> {
+          station.setName(newStation.getName());
+          station.setNetwork(newStation.getNetwork());
+          station.setLineName(newStation.getLineName());
+          station.setAddress(newStation.getAddress());
+          station.setCity(newStation.getCity());
+          station.setState(newStation.getState());
+          station.setZip(newStation.getZip());
+          station.setCountry(newStation.getCountry());
+          station.setImageUrl(newStation.getImageUrl());
+          station.setDescription(newStation.getDescription());
+          station.setCalculatedCost(newStation.getCalculatedCost());
+          station.setAdminApproved(newStation.getAdminApproved());
+          return stationRepository.save(station);
+        }
+    ).orElseThrow(StationNotFoundException::new);
+  }
+
   @PutMapping("/admin/station/{id}/{decision}")
   public Station adminDecision(@RequestBody Station newStation, @PathVariable Integer id,
       @PathVariable String decision) {

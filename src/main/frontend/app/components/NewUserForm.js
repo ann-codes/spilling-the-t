@@ -40,7 +40,8 @@ const NewUserForm = (props) => {
         ],
         userForm,
         setErrors
-      ) && Object.entries(errors).length == 0
+      ) &&
+      Object.entries(errors).length == 0
     ) {
       props.addNewUser(userForm);
       setUserForm(defaultValues);
@@ -114,8 +115,16 @@ const NewUserForm = (props) => {
         onChange={handleChange}
       />
       <br />
-      <input type="submit" className="button secondary large" />
-      <button type="button" className="button secondary large button-margin-left" onClick={clearForm}>
+      <input
+        type="submit"
+        className="button secondary large"
+        value="Create Account"
+      />
+      <button
+        type="button"
+        className="button secondary large button-margin-left"
+        onClick={clearForm}
+      >
         Clear
       </button>
     </form>
