@@ -43,7 +43,7 @@ const StationsTableRows = (props) => {
         </Link>
         <form onSubmit={props.deleteOnSubmit} data-check-id={props.station.id}>
           <input
-            className="button alert"
+            className="button alert button-margin-top"
             type="submit"
             value="Delete Station"
           />

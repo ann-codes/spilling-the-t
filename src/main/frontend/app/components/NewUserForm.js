@@ -48,7 +48,7 @@ const NewUserForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="callout" onSubmit={handleSubmit}>
       <h2>Create a New Account</h2>
       <ErrorList errors={errors} />
       <label>Username</label>
@@ -114,8 +114,8 @@ const NewUserForm = (props) => {
         onChange={handleChange}
       />
       <br />
-      <input type="submit" className="button" />
-      <button type="button" className="button" onClick={clearForm}>
+      <input type="submit" className="button secondary large" />
+      <button type="button" className="button secondary large button-margin-left" onClick={clearForm}>
         Clear
       </button>
     </form>

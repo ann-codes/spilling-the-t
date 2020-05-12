@@ -9,7 +9,7 @@ const Sections = (props) => {
             <div className="card-section">
               <Link to="/admin/manage/stations">
                 <img src="https://pngimage.net/wp-content/uploads/2018/06/train-station-icon-png-2.png" />
-                <h4 className="align-center">Manage Stations</h4>
+                <p className="align-center admin-section-text">Manage Stations</p>
               </Link>
             </div>
           </div>
@@ -20,7 +20,7 @@ const Sections = (props) => {
             <div className="card-section">
               <Link to="/admin/manage/reviews">
                 <img src="https://library.kissclipart.com/20181217/gwe/kissclipart-evaluation-icon-png-clipart-computer-icons-c8a104f5b5542e62.png" />
-                <h4 className="align-center">Manage Reviews</h4>
+                <p className="align-center admin-section-text">Manage Reviews</p>
               </Link>
             </div>
           </div>
@@ -31,7 +31,7 @@ const Sections = (props) => {
             <div className="card-section">
               <Link to="/admin/manage/users">
                 <img src="https://pngimage.net/wp-content/uploads/2019/05/users-png-icon-.png" />
-                <h4 className="align-center">User Stats</h4>
+                <p className="align-center admin-section-text">User Statistics</p>
               </Link>
             </div>
           </div>
