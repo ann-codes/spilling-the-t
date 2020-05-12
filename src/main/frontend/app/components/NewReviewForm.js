@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ErrorList from "./ErrorList";
-import validateForm from "../functions/validateForm";
 import fetchData from "../functions/fetchData";
-import NewReview from "../containers/NewReview";
 
 const NewReviewForm = (props) => {
   const defaultForm = {
@@ -17,7 +15,7 @@ const NewReviewForm = (props) => {
     user: "",
   };
 
-  const [form, setForm] = useState([defaultForm]);
+  const [form, setForm] = useState(defaultForm);
   const [errors, setErrors] = useState([]);
 
   const clearForm = () => setForm(defaultForm);
@@ -89,7 +87,13 @@ const NewReviewForm = (props) => {
         onChange={handleChange}
       />
       <label>Date</label>
-      <input type="date" id="date" name="date" value={form.date} />
+      <input
+        type="date"
+        id="date"
+        name="date"
+        value={form.date}
+        onChange={handleChange}
+       />
       <label>Review</label>
       <input
         name="review"
