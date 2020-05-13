@@ -46,6 +46,7 @@ a:hover {
   font-weight: bolder;
   background-color: white;
   opacity: .5;
+  margin: 0 0 1.6rem;
 }
 
 .masthead {
@@ -114,6 +115,10 @@ a:hover {
 
 .card-section {
   padding: 2rem;
+}
+
+.grid-container {
+  padding: 0
 }
 
 /* GENERAL */
