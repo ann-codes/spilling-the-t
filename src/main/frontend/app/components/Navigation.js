@@ -14,16 +14,16 @@ const Navigation = (props) => {
               <Link to="/stations">Explore Stations</Link>
             </li>
             <li>
-              <Link to="/stations/new">Submit a new station</Link>
+              <Link to="/stations/new">Submit a Station</Link>
             </li>
             <li>
-              <Link to="/users/new">Create a new account</Link>
+              <Link to="/users/new">Create an Account</Link>
             </li>
             <li>
               <Link to="/admin">Admin Login</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login">User Login</Link>
             </li>
           </ul>
         </div>
