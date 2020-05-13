@@ -27,7 +27,6 @@ const LoginForm = (props) => {
     let noErrors = Object.entries(errors).length === 0;
 
     if (isValid) {
-      console.log("VALID", loginForm); // =======
 
       if (
         loginForm.username.length >= 1 &&
@@ -65,15 +64,9 @@ const LoginForm = (props) => {
       }
       useEffect(fetchAuth, []);
 
-
-    //   props.setLoggedIn(true);
-      //   setLoginForm({ username: "", password: "" });
       // SET COOKIE HERE TO AUTH
-      // render the "logged in notice" Component?
     } else {
-      console.log("NOT VALID", loginForm); // =======
-      // WE DONT CARE IF IT IS NOT VALID BC THEY GET THE ERROR MESSAGE
-      // will remove this later
+      // GET THE ERROR MESSAGE
     }
 
     console.log("is Authenticaed", isAuthed);
@@ -81,8 +74,6 @@ const LoginForm = (props) => {
     console.log("no errors, ", noErrors);
     console.log("errors:", errors);
   };
-
-  console.log("user ", userFound); // =======
 
   return (
     <form className="callout" onSubmit={handleSubmit}>
