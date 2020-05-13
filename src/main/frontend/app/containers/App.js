@@ -14,6 +14,7 @@ import ManageReviews from "../components/admin/ManageReviews";
 import ManageStations from "../components/admin/ManageStations";
 import StationEdit from "../components/admin/StationEdit";
 import UserProfile from "../components/UserProfile";
+import Logout from "./Logout";
 
 const App = (props) => {
   return (
@@ -30,6 +31,7 @@ const App = (props) => {
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/reviews/new" component={NewReview} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/logout" component={Logout} />
           <Route exact path="/admin" component={MainAdmin} />
           <Route exact path="/admin/manage/stations" component={ManageStations} />
           <Route exact path="/admin/manage/reviews" component={ManageReviews} />

@@ -25,6 +25,9 @@ const Navigation = (props) => {
             <li>
               <Link to="/login">User Login</Link>
             </li>
+            <li>
+              <Link to="/logout">Logout</Link>
+            </li>
           </ul>
         </div>
       </div>

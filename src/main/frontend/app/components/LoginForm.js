@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import ErrorList from "./ErrorList";
 import authenticateForm from "../functions/authenticateForm";
 
@@ -6,6 +7,10 @@ const LoginForm = (props) => {
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
   const [userFound, setUserFound] = useState({});
+  const [cookies, setCookie] = useCookies(["SPTlogin"]);
+
+  console.log("cookies ", cookies);
+  console.log("cookies length ", Object.entries(cookies).length);
 
   const handleChange = (event) => {
     setLoginForm({
@@ -15,7 +20,7 @@ const LoginForm = (props) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     let isAuthed = Object.entries(userFound).length > 1;
     let isValid = authenticateForm(
@@ -29,52 +34,55 @@ const LoginForm = (props) => {
     if (isValid) {
       console.log("VALID", loginForm); // =======//
 
-      if (
-        loginForm.username.length >= 1 &&
-        loginForm.password.length >= 1 &&
-        /^[a-zA-Z0-9_]*$/.test(loginForm.username)
-      ) {
-        // now that it is valid, check the api //
-        const apiAuth = `/api/v1/auth/${loginForm.username}/${loginForm.password}`;
-        const fetchAuth = fetch(apiAuth, {
-          headers: {
-            "Content-Type": "application/json",
-            credentials: "same-origin",
-          },
-        })
-          .then((response) => {
-            if (response.ok) {
-              return response;
-            } else {
-              throw new Error(`${response.status} (${response.statusText})`);
-            }
-          })
-          .then((response) => response.json())
-          .then((body) => {
-            if (body.length === 0) {
-              setErrors({
-                ...errors,
-                ["password"]: "and username combination does not match",
-              });
-            } else if (body.length > 0) {
-              setUserFound(body[0]);
-            }
-          })
-          .catch((error) => console.error(`Error in fetch: ${error.message}`));
+      setCookie("SPTlogin", loginForm, { path: "/" });
 
-      }
-      useEffect(fetchAuth, []);
+      // if (
+      //   loginForm.username.length >= 1 &&
+      //   loginForm.password.length >= 1 &&
+      //   /^[a-zA-Z0-9_]*$/.test(loginForm.username)
+      // ) {
+      //   // now that it is valid, check the api //
+      //   const apiAuth = `/api/v1/auth/${loginForm.username}/${loginForm.password}`;
 
-//     //   props.setLoggedIn(true);
-//       //   setLoginForm({ username: "", password: "" });
-//       // SET COOKIE HERE TO AUTH
-//       // render the "logged in notice" Component?
-    } 
-    
-    else {
+      //   // not defined yet --- add in the auth part in this function
+      //   const fetchAuth = fetch(apiAuth, {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       credentials: "same-origin",
+      //     },
+      //   })
+      //     .then((response) => {
+      //       if (response.ok) {
+      //         return response;
+      //       } else {
+      //         throw new Error(`${response.status} (${response.statusText})`);
+      //       }
+      //     })
+      //     .then((response) => response.json())
+      //     .then((body) => {
+      //       if (body.length === 0) {
+      //         setErrors({
+      //           ...errors,
+      //           ["password"]: "and username combination does not match",
+      //         });
+      //       } else if (body.length > 0) {
+      //         setUserFound(body[0]);
+      //       }
+      //     })
+      //     .catch((error) => console.error(`Error in fetch: ${error.message}`));
+
+      //   useEffect(fetchAuth, []); // can't call inside the hook?
+
+      // }
+
+      //   props.setLoggedIn(true);
+      //   setLoginForm({ username: "", password: "" });
+      // SET COOKIE HERE TO AUTH
+      // render the "logged in notice" Component?
+    } else {
       console.log("NOT VALID", loginForm); // =======
-     // // WE DONT CARE IF IT IS NOT VALID BC THEY GET THE ERROR MESSAGE
-      // // will remove this later
+      // WE DONT CARE IF IT IS NOT VALID BC THEY GET THE ERROR MESSAGE
+      // will remove this later
     }
 
     console.log("is Authenticaed", isAuthed);
@@ -84,7 +92,7 @@ const LoginForm = (props) => {
   };
 
   return (
-    <form className="callout" onSubmit={handleSubmit}>
+    <form className="box" onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
       <h2>Login</h2>
       <label>Username</label>

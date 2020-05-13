@@ -1,19 +1,26 @@
 import React, { useState, useEffect, Fragment } from "react";
+import { useCookies } from "react-cookie";
 import LoginForm from "../components/LoginForm";
 import postData from "../functions/postData";
 
 const Login = (props) => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(["SPTlogin"]);
+  const cookieExist = cookies.SPTlogin !== undefined;
+  let username = "";
 
-// //   if (!loggedIn) {
-// //     return;
-// //   } else {
-// //     return <p>Thanks for logging in!</p>;
-// //   }
+  if (cookieExist) {
+    username = <span> as {cookies.SPTlogin.username}</span>;
+  }
 
   return (
     <Fragment>
-      {!loggedIn ? <LoginForm setLoggedIn={setLoggedIn} /> : <p>Logged in</p>}
+      {!cookieExist ? (
+        <LoginForm />
+      ) : (
+        <div className="box">
+          <h1>You are now logged in{username}</h1>
+        </div>
+      )}
     </Fragment>
   );
 };
