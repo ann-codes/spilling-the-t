@@ -14,7 +14,7 @@ const StationShowPage = (props) => {
     return <NotFound404 />;
   } else {
     return <StationInfo station={station} />;
-  } 
+  }
 };
 
 export default StationShowPage;
