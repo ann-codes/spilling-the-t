@@ -3,7 +3,9 @@
 body {
   font-family: "Carrois Gothic", "Raleway", sans-serif;
   background-color: white;
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+  background-image: url("https://jclfaltot.files.wordpress.com/2014/05/train-tracks.jpg");
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 header {
@@ -39,6 +41,12 @@ a:hover {
 
 
 /* TWEAKS */
+
+.section-h {
+  font-weight: bolder;
+  background-color: white;
+  opacity: .5;
+}
 
 .masthead {
   max-width: 1000px;

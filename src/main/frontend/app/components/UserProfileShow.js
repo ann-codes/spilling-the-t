@@ -15,7 +15,7 @@ const UserProfileShow = (props) => {
 
   return (
     <div className="box">
-      <h3>{profile.username}'s Profile</h3>
+      <h2>{profile.username}'s Profile</h2>
       <div className="clearfix">
         <img src={profile.imageUrl} className="profile-img-thumb-resize" />
         <p>

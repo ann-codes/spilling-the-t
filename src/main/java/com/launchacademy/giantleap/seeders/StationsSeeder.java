@@ -62,7 +62,7 @@ public class StationsSeeder {
     stationC.setState("MA");
     stationC.setZip("02151");
     stationC.setCountry("USA");
-    stationC.setImageUrl("https://cdn.mbta.com/images/stops/wonderland.jpg");
+    stationC.setImageUrl("https://www.arrowstreet.com/wp-content/uploads/2015/03/01_1202_130730__Wonderland_MBTA-Edit_GreggShupe-1400x932.jpg");
     stationC.setDescription("Covered outdoor next to Revere Beach, Last stop on Blue Line T");
     stationC.setCalculatedCost("Fare");
     stationC.setAdminApproved(true);
