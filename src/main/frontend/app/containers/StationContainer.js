@@ -18,7 +18,7 @@ const StationContainer = (props) => {
 
   return (
     <Fragment>
-      <h1>Explore the Stations</h1>
+      <h1 className="section-h">Explore the Stations</h1>
       {stationsListItems}
     </Fragment>
   );
