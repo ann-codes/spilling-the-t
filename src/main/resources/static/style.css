@@ -16,6 +16,10 @@ header {
   padding: 20px;
 }
 
+.box {
+  background-color: white;
+  padding: 1.8rem;
+}
 
 footer {
   padding: 2rem;
@@ -59,6 +63,16 @@ a:hover {
   height: auto;
 }
 
+.profile-img-thumb-resize {
+  display: block;
+  float: left;
+  margin: 1.5rem 1.5rem 1rem 0;
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
 .dropdown-width-adj {
   width: 150px;
 }
@@ -70,14 +84,16 @@ a:hover {
   padding: 0;
 }
 
+.review-head {
+  font-weight: bold;
+  margin: 2rem 0 1rem;
+  line-height: 1.6;
+}
+
 /* FOUNDATION TWEAKS */
 
 .media-object {
   font-size: 1.2rem;
-}
-
-.callout {
-  padding: 2rem;
 }
 
 .button {
@@ -96,6 +112,10 @@ a:hover {
 
 .align-center {
   text-align: center;
+}
+
+.align-right {
+  text-align: right;
 }
 
 .button-margin-left {
@@ -129,4 +149,10 @@ a:hover {
   100% {
     opacity: 0;
   }
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }

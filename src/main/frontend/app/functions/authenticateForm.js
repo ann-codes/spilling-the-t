@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import fetchData from "./fetchData";
-
-const authenticateForm = (requiredFields, stateGetter, errorSetter) => {
+const authenticateForm = (
+  requiredFields,
+  stateGetter,
+  authSetter,
+  errorSetter
+) => {
   let submitErrors = {};
   requiredFields.forEach((field) => {
     if (stateGetter[field].trim() === "") {
@@ -12,32 +14,14 @@ const authenticateForm = (requiredFields, stateGetter, errorSetter) => {
     }
   });
 
-  if (stateGetter.username.length >= 1 && stateGetter.password.length >= 1) {
-    const apiAuth = `/api/v1/auth/${stateGetter.username}/${stateGetter.password}`;
-
-    fetch(apiAuth, {
-      headers: {
-        "Content-Type": "application/json",
-        credentials: "same-origin",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          throw new Error(`${response.status} (${response.statusText})`);
-        }
-      })
-      .then((response) => response.json())
-      .then((body) => {
-        if (body.length > 0) {
-          errorSetter({
-            ...submitErrors,
-            ["username"]: "and password do not match",
-          });
-        }
-      })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  const alphaNumOnly = /^[a-zA-Z0-9_]*$/;
+  if (stateGetter.username) {
+    if (!alphaNumOnly.test(stateGetter["username"])) {
+      submitErrors = {
+        ...submitErrors,
+        ["username"]: "may can only contain letters, numbers, and underscores.",
+      };
+    }
   }
 
   errorSetter(submitErrors);

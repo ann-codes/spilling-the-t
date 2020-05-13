@@ -1,33 +1,20 @@
-
-import React, { useState, useEffect } from "react"
-import fetchData from "../functions/fetchData"
-import StationCard from "../components/StationCard"
+import React, { useState, useEffect, Fragment } from "react";
+import fetchData from "../functions/fetchData";
+import StationCard from "../components/StationCard";
 
 const StationContainer = (props) => {
-	const [stations, setStations] = useState([])
+  const [stations, setStations] = useState([]);
+  const stationApiPath = "/api/v1/stations/all";
+  const loadStations = () => fetchData(stationApiPath, setStations);
+  useEffect(loadStations, []);
 
-	const stationApiPath = "/api/v1/stations/all"
+  let stationsListItems = <p>LOADING... </p>;
 
-	const loadStations = () => {
-		fetchData(stationApiPath, setStations)
-	}
-
-	useEffect(loadStations, [])
-
-	const stationsListItems = stations.map((map) => {
-		return (
-			<StationCard
-				key={map.id}
-				id={map.id}
-				network={map.network}
-				name={map.name}
-				lineName={map.lineName}
-				state={map.state}
-				imageUrl={map.imageUrl}
-				reviews={map.reviews}
-			/>
-		)
-	})
+  if (stations[0] !== undefined) {
+    stationsListItems = stations.map((station) => (
+      <StationCard key={station.id} station={station} />
+    ));
+  }
 
   return (
     <Fragment>
@@ -37,5 +24,4 @@ const StationContainer = (props) => {
   );
 };
 
-
-export default StationContainer
+export default StationContainer;
