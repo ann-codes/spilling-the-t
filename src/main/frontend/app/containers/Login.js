@@ -5,11 +5,11 @@ import postData from "../functions/postData";
 const Login = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
 
-//   if (!loggedIn) {
-//     return;
-//   } else {
-//     return <p>Thanks for logging in!</p>;
-//   }
+// //   if (!loggedIn) {
+// //     return;
+// //   } else {
+// //     return <p>Thanks for logging in!</p>;
+// //   }
 
   return (
     <Fragment>
