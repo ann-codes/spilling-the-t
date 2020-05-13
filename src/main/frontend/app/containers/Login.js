@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { Fragment } from "react";
 import { useCookies } from "react-cookie";
 import LoginForm from "../components/LoginForm";
-import postData from "../functions/postData";
 
 const Login = (props) => {
   const [cookies, setCookie, removeCookie] = useCookies(["SPTlogin"]);
