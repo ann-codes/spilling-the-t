@@ -5,20 +5,15 @@ import fetchData from "../functions/fetchData";
 
 const StationShowPage = (props) => {
   const [station, setStation] = useState({});
-
-  let currentStationId = Number(props.match.params.id);
-
+  const currentStationId = Number(props.match.params.id);
   const apiEndpoint = `/api/v1/station/${currentStationId}`;
   const fetchStation = () => fetchData(apiEndpoint, setStation);
-
   useEffect(fetchStation, {});
 
   if (station === null) {
     return <NotFound404 />;
-  } else if (currentStationId === station.id) {
-    return <StationInfo station={station} />;
   } else {
-    return <NotFound404 />;
+    return <StationInfo station={station} />;
   }
 };
 

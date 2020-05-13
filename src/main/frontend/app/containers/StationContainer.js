@@ -4,32 +4,21 @@ import StationCard from "../components/StationCard";
 
 const StationContainer = (props) => {
   const [stations, setStations] = useState([]);
-
   const stationApiPath = "/api/v1/stations/all";
-
-  const loadStations = () => {
-    fetchData(stationApiPath, setStations);
-  };
-
+  const loadStations = () => fetchData(stationApiPath, setStations);
   useEffect(loadStations, []);
 
-  const stationsListItems = stations.map((map) => {
-    return (
-      <StationCard
-        key={map.id}
-        id={map.id}
-        network={map.network}
-        name={map.name}
-        lineName={map.lineName}
-        state={map.state}
-        imageUrl={map.imageUrl}
-      />
-    );
-  });
+  let stationsListItems = <p>LOADING... </p>;
+
+  if (stations[0] !== undefined) {
+    stationsListItems = stations.map((station) => (
+      <StationCard key={station.id} station={station} />
+    ));
+  }
 
   return (
     <Fragment>
-      <h1>Explore the Stations</h1>
+      <h1 className="section-h">Explore the Stations</h1>
       {stationsListItems}
     </Fragment>
   );

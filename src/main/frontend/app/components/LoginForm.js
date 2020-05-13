@@ -83,8 +83,6 @@ const LoginForm = (props) => {
     console.log("errors:", errors);
   };
 
-  console.log("user ", userFound); // =======
-
   return (
     <form className="callout" onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
