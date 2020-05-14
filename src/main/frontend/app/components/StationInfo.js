@@ -16,7 +16,9 @@ const StationInfo = (props) => {
     <Fragment>
       <h2 className="section-h align-center">{props.station.name} Station</h2>
       <div className="box">
-        <img src={props.station.imageUrl} />
+        <div className="align-center">
+          <img className="station-img" src={props.station.imageUrl} />
+        </div>
         <p>
           <strong>Network:</strong> {props.station.network}
         </p>
@@ -31,7 +33,10 @@ const StationInfo = (props) => {
           <br />
           {props.station.city}, {props.station.state} {props.station.zip}
         </p>
-        <p>{props.station.description}</p>
+        <p>
+          <strong>Description:</strong>
+          {props.station.description}
+        </p>
         <Link className="button secondary large" to={`/reviews/new`}>
           Add Your Review
         </Link>
@@ -39,7 +44,6 @@ const StationInfo = (props) => {
       <h2 className="section-h align-center">
         {props.station.name} Station Reviews
       </h2>
-
       <div className="box">{mapReviews}</div>
     </Fragment>
   );

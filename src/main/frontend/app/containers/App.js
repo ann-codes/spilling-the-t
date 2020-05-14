@@ -25,6 +25,7 @@ const App = (props) => {
       </div>
       <div className="row medium-10 columns container">
         <Switch>
+          <Route exact path="/" component={StationContainer} />
           <Route exact path="/stations" component={StationContainer} />
           <Route exact path="/stations/new" component={NewStation} />
           <Route exact path="/station/:id" component={StationShowPage} />

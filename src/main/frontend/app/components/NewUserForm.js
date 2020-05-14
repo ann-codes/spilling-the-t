@@ -49,7 +49,7 @@ const NewUserForm = (props) => {
   };
 
   return (
-    <form className="box" onSubmit={handleSubmit}>
+    <form className="box margin-top2" onSubmit={handleSubmit}>
       <h2>Create a New Account</h2>
       <ErrorList errors={errors} />
       <label>Username</label>

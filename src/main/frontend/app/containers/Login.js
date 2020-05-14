@@ -46,7 +46,7 @@ const Login = (props) => {
   return (
     <Fragment>
       {!cookieExist ? (
-        <Fragment>
+        <div className="box margin-top2">
           <LoginForm
             loginForm={loginForm}
             errors={errors}
@@ -54,14 +54,14 @@ const Login = (props) => {
             setLoginForm={setLoginForm}
             authOnSubmit={authOnSubmit}
           />
-          <div className="box">
+          <div>
             <p>Don't have an account?</p>
             <h2>Create New Account</h2>
             <Link className="button secondary large" to={`/users/new`}>
               Register
             </Link>
           </div>
-        </Fragment>
+        </div>
       ) : (
         <div className="box">
           <h1>You are now logged in{username}</h1>

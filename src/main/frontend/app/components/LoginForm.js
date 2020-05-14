@@ -22,7 +22,7 @@ const LoginForm = (props) => {
   };
 
   return (
-    <form className="box" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <ErrorList errors={props.errors} />
       <h2>Login</h2>
       <label>Username</label>

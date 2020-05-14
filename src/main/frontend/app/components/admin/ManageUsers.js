@@ -17,7 +17,7 @@ const ManageUsers = (props) => {
 
   return (
     <div>
-      <h3 className="section-h align-center">User Statistics</h3>
+      <h1 className="section-h align-center">User Statistics</h1>
       <table className="hover">
         <UsersTableHeading />
         <tbody>{mapUsers}</tbody>

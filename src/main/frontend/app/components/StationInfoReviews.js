@@ -6,16 +6,18 @@ const StationInfoReviews = (props) => {
   const review = props.review;
   return (
     <div>
-      <h5 className="review-head">{review.title}</h5>
-      <p>
-        By{" "}
+      <div className="clearfix">
+        <Link to={`/profile/${review.user.username}`}>
+          <img src={review.user.imageUrl} className="profile-img-thumb-tiny" />
+        </Link>
+        <h5 className="review-head">{review.title}</h5>By{" "}
         <Link to={`/profile/${review.user.username}`}>
           {review.user.username}
         </Link>
-      </p>
-      <p>
+      </div>
+      <div className="review-text">
         <strong>{review.date.split("T")[0]}:</strong> {review.review}
-      </p>
+      </div>
       <table className="table-boop">
         <tbody>
           <tr>
