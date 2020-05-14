@@ -24,9 +24,9 @@ const StationCard = (props) => {
             {station.reviews.title}<br />
             <Link to={`station/${station.id}`}>
               Learn more about {station.name} Station{" "}
-              <i class="fa fa-caret-right" aria-hidden="true"></i>
-              <i class="fa fa-caret-right" aria-hidden="true"></i>
-              <i class="fa fa-caret-right" aria-hidden="true"></i>
+              <i className="fa fa-caret-right" aria-hidden="true"></i>
+              <i className="fa fa-caret-right" aria-hidden="true"></i>
+              <i className="fa fa-caret-right" aria-hidden="true"></i>
             </Link>
           </p>
         </div>
