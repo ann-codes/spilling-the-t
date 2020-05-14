@@ -13,7 +13,7 @@ const Logout = (props) => {
     logoutNotice = <h1>You are logged out</h1>;
   }
 
-  return <div className="box">{logoutNotice}</div>;
+  return <div className="box margin-top2">{logoutNotice}</div>;
 };
 
 export default Logout;
