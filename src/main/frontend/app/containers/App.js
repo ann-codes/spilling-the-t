@@ -19,10 +19,10 @@ import Logout from "./Logout";
 const App = (props) => {
   return (
     <BrowserRouter>
-      <header id="header" className="align-center">
-        <img className="masthead" src="https://i.ibb.co/ngGmTZv/header.png" />
-      </header>
       <Navigation />
+      <div className="hero align-center">
+        <img className="masthead" src="https://i.ibb.co/ngGmTZv/header.png" />
+      </div>
       <div className="row medium-10 columns container">
         <Switch>
           <Route exact path="/stations" component={StationContainer} />
@@ -44,4 +44,5 @@ const App = (props) => {
     </BrowserRouter>
   );
 };
+
 export default App;

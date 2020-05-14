@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
+import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import LoginForm from "../components/LoginForm";
 
@@ -45,13 +46,22 @@ const Login = (props) => {
   return (
     <Fragment>
       {!cookieExist ? (
-        <LoginForm
-          loginForm={loginForm}
-          errors={errors}
-          setErrors={setErrors}
-          setLoginForm={setLoginForm}
-          authOnSubmit={authOnSubmit}
-        />
+        <Fragment>
+          <LoginForm
+            loginForm={loginForm}
+            errors={errors}
+            setErrors={setErrors}
+            setLoginForm={setLoginForm}
+            authOnSubmit={authOnSubmit}
+          />
+          <div className="box">
+            <p>Don't have an account?</p>
+            <h2>Create New Account</h2>
+            <Link className="button secondary large" to={`/users/new`}>
+              Register
+            </Link>
+          </div>
+        </Fragment>
       ) : (
         <div className="box">
           <h1>You are now logged in{username}</h1>

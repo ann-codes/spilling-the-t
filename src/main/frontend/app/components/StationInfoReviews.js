@@ -16,7 +16,7 @@ const StationInfoReviews = (props) => {
       <p>
         <strong>{review.date.split("T")[0]}:</strong> {review.review}
       </p>
-      <table>
+      <table className="table-boop">
         <tbody>
           <tr>
             <td className="align-right">Cleanliness: </td>
