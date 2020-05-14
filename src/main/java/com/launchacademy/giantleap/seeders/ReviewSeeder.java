@@ -46,8 +46,7 @@ public class ReviewSeeder {
         review1.setCapacity(5);
         review1.setOverallRating(5);
         review1.setStation(stationRepository.findByName("Ashmont"));
-        review1.setUser(userRepository.findByUsername("coolcat2001"));
-
+        review1.setUser(userRepository.findByUsername("lazycat2001"));
 
         Review review2 = new Review();
         review2.setTitle("Fake marketing! Really disappointed customer!");

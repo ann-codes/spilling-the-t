@@ -64,7 +64,7 @@ const ManageStations = (props) => {
 
   return (
     <div>
-      <h3>Manage Stations</h3>
+      <h3 className="section-h align-center">Manage Stations</h3>
       <table className="hover">
         <StationsTableHeading />
         <tbody>{mapStations}</tbody>
