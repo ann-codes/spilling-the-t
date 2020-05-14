@@ -60,6 +60,350 @@ public class ReviewSeeder {
         review2.setStation(stationRepository.findByName("Wonderland"));
         review2.setUser(userRepository.findByUsername("superGirl"));
 
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
+        Review review1 = new Review();
+        review1.setTitle("Early bird gets a seat!");
+        review1.setDate(now);
+        review1.setReview("Do you want to know the secret to life in the city? Get yourself a place near the end of a subway line--always guaranteed a seat if you get on at the first stop on a route! I bring my own Lysol and hose down my seat first thing, extra sterile and comfortable.");
+        review1.setCleanliness(5);
+        review1.setOnTime(4);
+        review1.setCapacity(5);
+        review1.setOverallRating(5);
+        review1.setStation(stationRepository.findByName("Ashmont"));
+        review1.setUser(userRepository.findByUsername("coolcat2001"));
+
+        Review review2 = new Review();
+        review2.setTitle("Fake marketing! Really disappointed customer!");
+        review2.setDate(now);
+        review2.setReview("I am a tourist and believed this destination was supposed to be a carnival or something marvelous. Instead, I discovered a run-down train station upon visiting. Why would they name it Wonderland if there's nothing wonderful about it. Shame on you, MBTA!");
+        review2.setCleanliness(3);
+        review2.setOnTime(3);
+        review2.setCapacity(3);
+        review2.setOverallRating(1);
+        review2.setStation(stationRepository.findByName("Wonderland"));
+        review2.setUser(userRepository.findByUsername("superGirl"));
+
         List<Review> findReview = reviewRepository.findAll();
         if (findReview.size() == 0) {
             reviewRepository.save(review);
