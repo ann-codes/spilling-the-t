@@ -82,38 +82,37 @@ public class UserSeeder {
     seedList.add(user6);
 
     User user7 = new User();
-    user7.setUsername("loanshark");
-    user7.setPassword("password123");
-    user7.setEmail("gimme@yomoney.com");
-    user7.setFirstName("Tom");
-    user7.setLastName("Nook");
+    user7.setUsername("TiredBruh");
+    user7.setPassword("tiredwa");
+    user7.setEmail("biowork@biogen.com");
+    user7.setFirstName("Oneoae");
+    user7.setLastName("Monae");
     user7.setLocation("Boston, MA");
-    user7.setImageUrl("https://upload.wikimedia.org/wikipedia/en/7/72/Tom_Nook.png");
+    user7.setImageUrl("https://cdn.imgbin.com/19/8/11/imgbin-cartoon-muscular-PjkLEQEegLEDvRw1xDHjxnuKA.jpg");
     seedList.add(user7);
 
     User user8 = new User();
-    user8.setUsername("loanshark");
+    user8.setUsername("YDidthihappen");
     user8.setPassword("password123");
-    user8.setEmail("gimme@yomoney.com");
-    user8.setFirstName("Tom");
-    user8.setLastName("Nook");
+    user8.setEmail("yofam@whosemansisthis.com");
+    user8.setFirstName("Lauren");
+    user8.setLastName("Mountain");
     user8.setLocation("East Boston, MA");
-    user8.setImageUrl("https://upload.wikimedia.org/wikipedia/en/7/72/Tom_Nook.png");
+    user8.setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZRfuzmqeLh8iCRzheCIPROpVzCHma8m3OiHnvUCEjfqJqOa_V&usqp=CAU");
     seedList.add(user8);
 
     User user9 = new User();
-    user9.setUsername("loanshark");
-    user9.setPassword("password123");
-    user9.setEmail("gimme@yomoney.com");
-    user9.setFirstName("Tom");
-    user9.setLastName("Nook");
+    user9.setUsername("SmackMe");
+    user9.setPassword("bodegaboys");
+    user9.setEmail("porae@money.com");
+    user9.setFirstName("Tomas");
+    user9.setLastName("Merondaez");
     user9.setLocation("Boston, MA");
-    user9.setImageUrl("https://upload.wikimedia.org/wikipedia/en/7/72/Tom_Nook.png");
+    user9.setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR74_J6gqQyn3jOi9K8wHpCFoDzQZL9bME7IHCbaPUaXdgomX1A&usqp=CAU");
     seedList.add(user9);
 
     User user10 = new User();
     user10.setUsername("ShanghaiHi");
-
     user10.setPassword("Washit");
     user10.setEmail("MimiDasheshe@money.com");
     user10.setFirstName("Mimi");
@@ -201,6 +200,16 @@ public class UserSeeder {
     user18.setLocation("Dorchester, MA");
     user18.setImageUrl("https://www.netclipart.com/pp/m/317-3175863_beautiful-black-anime-characters.png");
     seedList.add(user18);
+
+    User user19 = new User();
+    user19.setUsername("HairbeFine");
+    user19.setPassword("mypriv");
+    user19.setEmail("Karen@Whereisthemanager.com");
+    user19.setFirstName("Karen");
+    user19.setLastName("Smith");
+    user19.setLocation("Dorchester, MA");
+    user19.setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxakTWMVNA5H2NTurwKWILVqR2Jexsf6u2ykj8NGBSHYLCXzRk&usqp=CAU");
+    seedList.add(user19);
 
     for (User user: seedList) {
       List<User> matchUsername = userRepository.findAllByUsername(user.getUsername());
