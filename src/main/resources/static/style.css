@@ -69,10 +69,10 @@ a:visited {
 
 .img-thumb-resize {
   display: block;
-  max-width: 200px;
-  max-height: 200px;
-  width: auto;
-  height: auto;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
 }
 
 .user-img-thumb-resize {
@@ -120,7 +120,7 @@ a:visited {
 
 .station-img {
   margin: 3rem;
-  border-radius: 4px;
+  border-radius: 20px;
   width: 90%;
 }
 
@@ -154,6 +154,10 @@ a:visited {
 
 .grid-container {
   padding: 0;
+}
+
+.callout {
+  border: 0;
 }
 
 /* GENERAL */
@@ -212,7 +216,7 @@ a:visited {
 /* Responsive menu ====================== */
 
 .header {
-  background-color: #fff;
+  background-color: #f4f4f4;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
@@ -224,19 +228,19 @@ a:visited {
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #f4f4f4;
 }
 
 .header li a {
   display: block;
   padding: 20px 20px;
-  border-right: 1px solid #f4f4f4;
   text-decoration: none;
+  transition: .6s;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  background-color: #f4f4f4;
+  background-color: white;
 }
 
 .header .logo {
