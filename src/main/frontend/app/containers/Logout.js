@@ -7,7 +7,9 @@ const Logout = (props) => {
   const cookieExist = cookies.SPTlogin !== undefined;
   let logoutNotice = <h1>Logging out...</h1>;
 
-  if (!cookieExist) {
+  if (cookieExist) {
+    logoutNotice = <h1>Logging out as {cookies.SPTlogin.username}</h1>;
+  } else {
     logoutNotice = <h1>You are logged out</h1>;
   }
 
