@@ -75,8 +75,8 @@ const NewReviewForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Submit A New Review!</h2>
+    <form className="box" onSubmit={handleSubmit}>
+      <h2>Submit a New Review</h2>
       <ErrorList errors={errors} />
       <label>Title</label>
       <input
@@ -93,7 +93,7 @@ const NewReviewForm = (props) => {
         name="date"
         value={form.date}
         onChange={handleChange}
-       />
+      />
       <label>Review</label>
       <input
         name="review"
@@ -236,8 +236,12 @@ const NewReviewForm = (props) => {
         </option>
         {listUsers}
       </select>
-      <input type="submit" className="button" />
-      <button type="button" className="button" onClick={clearForm}>
+      <input type="submit" className="button secondary large" />
+      <button
+        type="button"
+        className="button secondary large button-margin-left"
+        onClick={clearForm}
+      >
         Clear
       </button>
     </form>

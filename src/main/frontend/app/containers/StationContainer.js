@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
+import { Link } from "react-router-dom";
 import fetchData from "../functions/fetchData";
 import StationCard from "../components/StationCard";
 
@@ -20,6 +21,12 @@ const StationContainer = (props) => {
     <Fragment>
       <h1 className="section-h align-center">Explore the Stations</h1>
       {stationsListItems}
+      <div className="callout align-center">
+        <h3>Can't find your station?</h3>
+        <Link className="button secondary large" to="/stations/new" >
+          Submit a Station
+        </Link>
+      </div>
     </Fragment>
   );
 };

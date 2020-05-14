@@ -4,7 +4,7 @@ import Sections from "../components/admin/Sections";
 const MainAdmin = (props) => {
   return (
     <Fragment>
-      <h2 className="align-center section-h">Administrator Portal</h2>
+      <h1 className="align-center section-h">Administrator Portal</h1>
       <Sections />
     </Fragment>
   );
