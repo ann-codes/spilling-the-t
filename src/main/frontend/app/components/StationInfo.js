@@ -28,6 +28,7 @@ const StationInfo = (props) => {
         <br />
         {props.station.city}, {props.station.state} {props.station.zip}
       </p>
+      <p>{props.station.description}</p>
       <h2>{props.station.name} Station Reviews</h2>
       {mapReviews}
     </div>
