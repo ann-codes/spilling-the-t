@@ -51,7 +51,7 @@ public class ReviewSeeder {
         review1.setCapacity(5);
         review1.setOverallRating(5);
         review1.setStation(stationRepository.findByName("Ashmont"));
-        review1.setUser(userRepository.findByUsername("coolcat2001"));
+        review1.setUser(userRepository.findByUsername("lazycat2001"));
         reviews.add(review1);
 
         Review review2 = new Review();
@@ -99,7 +99,7 @@ public class ReviewSeeder {
         review5.setCapacity(5);
         review5.setOverallRating(5);
         review5.setStation(stationRepository.findByName("Boston College"));
-        review5.setUser(userRepository.findByUsername("coolcat2001"));
+        review5.setUser(userRepository.findByUsername("lazycat2001"));
         reviews.add(review5);
 
         Review review6 = new Review();
@@ -219,7 +219,7 @@ public class ReviewSeeder {
         review15.setCapacity(5);
         review15.setOverallRating(5);
         review15.setStation(stationRepository.findByName("Lechmere"));
-        review15.setUser(userRepository.findByUsername("coolcat2001"));
+        review15.setUser(userRepository.findByUsername("lazycat2001"));
         reviews.add(review15);
 
         Review review16 = new Review();
@@ -363,7 +363,7 @@ public class ReviewSeeder {
         review27.setCapacity(5);
         review27.setOverallRating(5);
         review27.setStation(stationRepository.findByName("Sullivan Square"));
-        review27.setUser(userRepository.findByUsername("coolcat2001"));
+        review27.setUser(userRepository.findByUsername("lazycat2001"));
         reviews.add(review27);
 
         Review review28 = new Review();
@@ -387,7 +387,7 @@ public class ReviewSeeder {
         review29.setCapacity(5);
         review29.setOverallRating(5);
         review29.setStation(stationRepository.findByName("Arlington"));
-        review29.setUser(userRepository.findByUsername("coolcat2001"));
+        review29.setUser(userRepository.findByUsername("lazycat2001"));
         reviews.add(review29);
 
         Review review30 = new Review();
@@ -411,7 +411,7 @@ public class ReviewSeeder {
         review31.setCapacity(5);
         review31.setOverallRating(5);
         review31.setStation(stationRepository.findByName("Lechmere"));
-        review31.setUser(userRepository.findByUsername("coolcat2001"));
+        review31.setUser(userRepository.findByUsername("lazycat2001"));
         reviews.add(review31);
 
         Review review32 = new Review();
