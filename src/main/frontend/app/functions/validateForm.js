@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-import fetchData from "./fetchData";
-
 const validateForm = (requiredFields, stateGetter, errorSetter) => {
   let submitErrors = {};
   requiredFields.forEach((field) => {
@@ -21,28 +18,6 @@ const validateForm = (requiredFields, stateGetter, errorSetter) => {
           "may only contain letters, numbers, and underscores only.",
       };
     }
-
-    const apiCheckUsernameUnique = `/api/v1/users/checkname/${stateGetter.username}`;
-    fetch(apiCheckUsernameUnique, {
-      headers: { "Content-Type": "application/json", credentials: "same-origin" },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          throw new Error(`${response.status} (${response.statusText})`);
-        }
-      })
-      .then((response) => response.json())
-      .then((body) => {
-        if (body.length > 0) {
-          errorSetter({
-            ...submitErrors,
-            ["username"]: "has already been taken.",
-          });
-        }
-      })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }
 
   const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
@@ -51,7 +26,7 @@ const validateForm = (requiredFields, stateGetter, errorSetter) => {
       submitErrors = {
         ...submitErrors,
         ["password"]:
-          "must contain upper and lower case letters, numbers, a pecial character(!@#$%^&*) and have more than 8 characters",
+          "must be more than 8 characters, contain upper and lower case letters, numbers, and a special character(!@#$%^&*).",
       };
     }
   }

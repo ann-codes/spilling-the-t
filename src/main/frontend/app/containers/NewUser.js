@@ -11,11 +11,12 @@ const NewUser = (props) => {
     postData(postApiPath, payload, setSubmitted);
   };
 
-  const submittedResponse =
-    "Thank you. Your account has been created, Please login";
-
   if (submitted) {
-    return <h2>{submittedResponse}</h2>;
+    return (
+      <div className="box">
+        <h2>Your account has been created, Please login.</h2>
+      </div>
+    );
   } else {
     return <NewUserForm addNewUser={addNewUser} />;
   }
