@@ -75,7 +75,7 @@ const NewReviewForm = (props) => {
   };
 
   return (
-    <form className="box" onSubmit={handleSubmit}>
+    <form className="box margin-top2" onSubmit={handleSubmit}>
       <h2>Submit a New Review</h2>
       <ErrorList errors={errors} />
       <label>Title</label>
