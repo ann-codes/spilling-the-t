@@ -2,20 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import StarMaker from "./StarMaker";
 
-const UserProfileReview = ({ review }) => {
+const StationInfoReviews = (props) => {
+  const review = props.review;
   return (
     <div>
-      <h5 className="review-head">{review.title}</h5>
-      <p>
-        <Link to={`/station/${review.station.id}`}>
-          {review.station.name} Station
-        </Link>{" "}
-        on the {review.station.lineName} Line ({review.station.network}) in{" "}
-        {review.station.city}, {review.station.state}
-      </p>
-      <p>
+      <div className="clearfix">
+        <Link to={`/profile/${review.user.username}`}>
+          <img src={review.user.imageUrl} className="profile-img-thumb-tiny" />
+        </Link>
+        <h5 className="review-head">{review.title}</h5>By{" "}
+        <Link to={`/profile/${review.user.username}`}>
+          {review.user.username}
+        </Link>
+      </div>
+      <div className="review-text">
         <strong>{review.date.split("T")[0]}:</strong> {review.review}
-      </p>
+      </div>
       <table className="table-boop">
         <tbody>
           <tr>
@@ -46,4 +48,4 @@ const UserProfileReview = ({ review }) => {
   );
 };
 
-export default UserProfileReview;
+export default StationInfoReviews;

@@ -3,31 +3,30 @@ import { Link } from "react-router-dom";
 
 const Navigation = (props) => {
   return (
-    <nav className="cell" data-sticky-container>
-      <div className="top-bar">
-        <div className="top-bar-title">
-          Spill your beans on MBTA stations and beyond!
-        </div>
-        <div className="top-bar-right">
-          <ul className="menu">
-            <li>
-              <Link to="/stations">Explore Stations</Link>
-            </li>
-            <li>
-              <Link to="/stations/new">Submit a Station</Link>
-            </li>
-            <li>
-              <Link to="/users/new">Create an Account</Link>
-            </li>
-            <li>
-              <Link to="/admin">Admin Login</Link>
-            </li>
-            <li>
-              <Link to="/login">User Login</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav>
+      <header className="header">
+        <a href="/" className="logo">
+          <i className="fa fa-subway" aria-hidden="true"></i>
+        </a>
+        <input className="menu-btn" type="checkbox" id="menu-btn" />
+        <label className="menu-icon" htmlFor="menu-btn">
+          <span className="navicon"></span>
+        </label>
+        <ul className="menu">
+          <li>
+            <Link to="/stations">Explore</Link>
+          </li>
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
+      </header>
     </nav>
   );
 };

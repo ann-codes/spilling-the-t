@@ -14,22 +14,25 @@ import ManageReviews from "../components/admin/ManageReviews";
 import ManageStations from "../components/admin/ManageStations";
 import StationEdit from "../components/admin/StationEdit";
 import UserProfile from "../components/UserProfile";
+import Logout from "./Logout";
 
 const App = (props) => {
   return (
     <BrowserRouter>
-      <header id="header" className="align-center">
-        <img className="masthead" src="https://i.ibb.co/ngGmTZv/header.png" />
-      </header>
       <Navigation />
+      <div className="hero align-center">
+        <img className="masthead" src="https://i.ibb.co/ngGmTZv/header.png" />
+      </div>
       <div className="row medium-10 columns container">
         <Switch>
+          <Route exact path="/" component={StationContainer} />
           <Route exact path="/stations" component={StationContainer} />
           <Route exact path="/stations/new" component={NewStation} />
           <Route exact path="/station/:id" component={StationShowPage} />
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/reviews/new" component={NewReview} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/logout" component={Logout} />
           <Route exact path="/admin" component={MainAdmin} />
           <Route exact path="/admin/manage/stations" component={ManageStations} />
           <Route exact path="/admin/manage/reviews" component={ManageReviews} />
@@ -42,4 +45,5 @@ const App = (props) => {
     </BrowserRouter>
   );
 };
+
 export default App;

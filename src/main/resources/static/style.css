@@ -3,22 +3,32 @@
 body {
   font-family: "Carrois Gothic", "Raleway", sans-serif;
   background-color: white;
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-}
-
-header {
-  background-color: white;
+  background-image: url("https://jclfaltot.files.wordpress.com/2014/05/train-tracks.jpg");
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .container {
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 0 auto 20px;
   padding: 20px;
 }
 
 .box {
   background-color: white;
   padding: 1.8rem;
+}
+
+.hero {
+  background-color: white;
+  padding: 100px 0 0 0;
+  opacity: 0.8;
+}
+
+.masthead {
+  max-height: 400px;
+  width: auto;
+  height: auto;
 }
 
 footer {
@@ -29,6 +39,12 @@ footer {
   background-color: black;
 }
 
+.quicklinks,
+.quicklinks a {
+  font-size: 0.8rem;
+  color: rgb(43, 43, 43);
+}
+
 a {
   color: rgb(12, 105, 0);
 }
@@ -37,22 +53,27 @@ a:hover {
   color: rgb(62, 158, 49);
 }
 
+a:active,
+a:visited {
+  color: rgb(17, 58, 12);
+}
 
 /* TWEAKS */
 
-.masthead {
-  max-width: 1000px;
-  max-height: 600px;
-  width: auto;
-  height: auto;
+.section-h {
+  font-weight: bolder;
+  background-color: white;
+  opacity: 0.5;
+  margin: 1.6rem 0 1.6rem;
 }
 
 .img-thumb-resize {
   display: block;
-  max-width: 200px;
-  max-height: 200px;
-  width: auto;
-  height: auto;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .user-img-thumb-resize {
@@ -73,6 +94,20 @@ a:hover {
   height: auto;
 }
 
+.profile-img-thumb-tiny {
+  display: block;
+  float: left;
+  margin: 1.5rem 1.5rem 1rem 0;
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+
+.review-text {
+  margin: 1rem 0 1.2rem;
+}
+
 .dropdown-width-adj {
   width: 150px;
 }
@@ -84,10 +119,21 @@ a:hover {
   padding: 0;
 }
 
+.station-img {
+  margin: 3rem;
+  border-radius: 20px;
+  width: 90%;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
 .review-head {
   font-weight: bold;
-  margin: 2rem 0 1rem;
+  margin: 1rem 0;
   line-height: 1.6;
+}
+
+.table-boop {
+  margin-bottom: 2rem;
 }
 
 /* FOUNDATION TWEAKS */
@@ -108,6 +154,19 @@ a:hover {
   padding: 2rem;
 }
 
+.grid-container {
+  padding: 0;
+}
+
+.callout {
+  border: 0;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.callout ul {
+  list-style: none;
+}
+
 /* GENERAL */
 
 .align-center {
@@ -124,6 +183,10 @@ a:hover {
 
 .button-margin-top {
   margin-top: 0.9rem;
+}
+
+.margin-top2 {
+  margin-top: 2rem;
 }
 
 /* MISC */
@@ -155,4 +218,144 @@ a:hover {
   content: "";
   clear: both;
   display: table;
+}
+
+/* Responsive menu ====================== */
+
+.header {
+  background-color: white;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: white;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f8fff8;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  color: black;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+.menu-icon:hover::after {
+  background: none;
+  box-shadow: none;
+}
+.menu {
+  display: block;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
 }

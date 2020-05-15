@@ -15,10 +15,42 @@ const NewUserForm = (props) => {
 
   const [userForm, setUserForm] = useState(defaultValues);
   const [errors, setErrors] = useState({});
+  const [dupe, setDupe] = useState({});
 
   const clearForm = () => setUserForm(defaultValues);
 
+  const checkName = () => {
+    const apiCheckUsernameUnique = `/api/v1/users/checkname/${userForm.username}`;
+    return fetch(apiCheckUsernameUnique, {
+      headers: {
+        "Content-Type": "application/json",
+        credentials: "same-origin",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          throw new Error(`${response.status} (${response.statusText})`);
+        }
+      })
+      .then((response) => response.json())
+      .then((body) => {
+        if (body.length > 0) {
+          setDupe({
+            ["username"]: `${userForm.username} has already been taken.`,
+          });
+        } else {
+          setDupe({});
+        }
+      })
+      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  };
+
   const handleChange = (event) => {
+    if (userForm["username"].length > 0) {
+      checkName();
+    }
     setUserForm({
       ...userForm,
       [event.currentTarget.id]: event.currentTarget.value,
@@ -40,16 +72,18 @@ const NewUserForm = (props) => {
         ],
         userForm,
         setErrors
-      ) &&
-      Object.entries(errors).length == 0
+      )
     ) {
-      props.addNewUser(userForm);
-      setUserForm(defaultValues);
+      checkName();
+      if (Object.entries(dupe).length === 0) {
+        props.addNewUser(userForm);
+        setUserForm(defaultValues);
+      }
     }
   };
 
   return (
-    <form className="callout" onSubmit={handleSubmit}>
+    <form className="box margin-top2" onSubmit={handleSubmit}>
       <h2>Create a New Account</h2>
       <ErrorList errors={errors} />
       <label>Username</label>
@@ -60,6 +94,7 @@ const NewUserForm = (props) => {
         value={userForm.username}
         onChange={handleChange}
       />
+      <ErrorList errors={dupe} />
       <br />
       <label>Password</label>
       <input

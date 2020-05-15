@@ -68,7 +68,7 @@ const NewStationForm = (props) => {
     }
   };
   return (
-    <form className="callout" onSubmit={handleSubmit}>
+    <form className="box margin-top2" onSubmit={handleSubmit}>
       <h2>Submit a New Station</h2>
       <ErrorList errors={errors} />
       <label>Transit Network</label>

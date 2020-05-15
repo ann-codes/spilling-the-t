@@ -1,6 +1,7 @@
 package com.launchacademy.giantleap.controllers.api.v1;
 
 import com.launchacademy.giantleap.dtos.UserDto;
+import com.launchacademy.giantleap.helpers.PassHash;
 import com.launchacademy.giantleap.models.User;
 import com.launchacademy.giantleap.repositories.UserRepository;
 import com.launchacademy.giantleap.services.UserService;
@@ -71,7 +72,8 @@ public class UserApiController {
   @GetMapping("auth/{username}/{password}")
   public Iterable<UserDto> getAllByUsernameAndPassword(@PathVariable String username,
       @PathVariable String password) {
-    return userService.findAllByUsernameAndPasswordDto(username, password);
+    PassHash pw = new PassHash(password);
+    return userService.findAllByUsernameAndPasswordDto(username, pw.saltAndHash());
   }
 
   @PostMapping("user/new")

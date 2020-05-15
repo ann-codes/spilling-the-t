@@ -1,9 +1,4 @@
-const authenticateForm = (
-  requiredFields,
-  stateGetter,
-  authSetter,
-  errorSetter
-) => {
+const validateLoginForm = (requiredFields, stateGetter, errorSetter) => {
   let submitErrors = {};
   requiredFields.forEach((field) => {
     if (stateGetter[field].trim() === "") {
@@ -19,7 +14,7 @@ const authenticateForm = (
     if (!alphaNumOnly.test(stateGetter["username"])) {
       submitErrors = {
         ...submitErrors,
-        ["username"]: "may can only contain letters, numbers, and underscores.",
+        ["username"]: " can only contain letters, numbers, and underscores.",
       };
     }
   }
@@ -31,4 +26,4 @@ const authenticateForm = (
   );
 };
 
-export default authenticateForm;
+export default validateLoginForm;
