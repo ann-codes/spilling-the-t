@@ -42,9 +42,3 @@ Acting PMs: Dan Alberts, Pat Whelan
 
 - A simple login and authentication with salted and hashed passwords were created for learning purposes only and should not be used in production.
 
-- This component is still a work in progress.
-
-- If you encounter a bug of some kind, feel free to report the issue.
-
-- If you'd like to improve this code or ask/advise for any improvement, feel free to comment it as well.
-
